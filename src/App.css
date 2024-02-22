@@ -54,3 +54,70 @@ footer {
   height: 200px;
   background-color: beige;
 }
+
+/*css for signup page*/
+
+.signup{
+  /* justify-content: center;
+  align-items: center; */
+  text-align: center;
+}
+.font{
+  font-family: sans-serif;
+}
+.signup_input{
+  border-radius: 10px;
+  background: #A1887F;
+  width: 487px;
+  height: 69px;
+  flex-shrink: 0;
+}
+
+h1{
+  color: #6D4C41;
+ font-family: "Sans-serif";
+  margin: 0px;
+  padding: 0px;
+}
+
+h4{
+  color: #6D4C41;
+  font-family: "Sans-serif";
+  font-size: 14px;
+margin: 5px;    line-height: normal;
+}
+
+
+button{
+  width: 242px;
+  height: 72px;
+  flex-shrink: 0;
+  background: #795548;
+  color: #FFF;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+input{
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 10px;
+  border: 0;
+  padding-left: 30px;
+  
+}
+.account {
+  display: flex;
+  flex-direction: row;
+ justify-content: center;
+}
+::placeholder{
+  font-family: Sans-serif;
+  font-size: 20px;
+  color: white;
+
+}

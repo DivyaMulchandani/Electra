@@ -3,7 +3,7 @@ import * as React from 'react';
 import Footer from "./footer";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import * as Navigation from "navigation";
+import * as Navigation from "./navigation";
 
 function Mainpage() {
   return (
@@ -12,7 +12,7 @@ function Mainpage() {
         <div id="circle"></div>
         <div id="logo"></div>
         <Stack direction="row" class= "button-group" spacing={2}>
-          <Button variant="contained" class="button" onClick={Navigation.navigateToUserSignup} >
+          <Button variant="contained" class="button" >
             User Login
           </Button>
           <Button variant="contained" class="button" >
