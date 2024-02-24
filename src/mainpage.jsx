@@ -4,6 +4,7 @@ import Footer from "./footer";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import * as Navigation from "./navigation";
+import logo from "./logo.svg"
 
 function Mainpage() {
   return (
@@ -12,6 +13,7 @@ function Mainpage() {
         <div id="circle"></div>
         <div id="logo"></div>
         <Stack direction="row" class= "button-group" spacing={2}>
+          
 
 
           <Button variant="contained" class="button"  >
