@@ -1,9 +1,11 @@
 import './App.css'
-
+import Logo from "./logo";
 function Signup() {
   return (
     <div className='signup'>
+        <Logo/>
         <div>
+            
             <h1 className='font'>SIGN UP</h1>
             <div className='account'>
                 <h4 className='font'>Already have an account?</h4>

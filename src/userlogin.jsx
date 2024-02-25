@@ -3,11 +3,12 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Footer from "./footer";
+import Logo from "./logo";
 
 function User_login() {
   return (
     <div className="Login">
-      <div id="logo"></div>
+      <Logo/>
       <div>
         <h1 className="font">Login</h1>
         <div className="account">

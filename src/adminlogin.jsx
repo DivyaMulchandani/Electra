@@ -2,11 +2,12 @@ import "./App.css";
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Footer from "./footer";
+import Logo from "./logo";
 
 function Admin_login() {
   return (
     <div className="Login">
-      <div id="logo"></div>
+      <Logo/>
       <div>
         <h1 className="font">Admin Login</h1>
 

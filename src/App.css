@@ -1,40 +1,41 @@
+body {
+  background-color: #D7CCC8 !important;
+  width: 90vw;
+}
 
 #main {
   display: inline-block;
-  
+  text-align: center;
 }
-body{
-  background-color: #D7CCC8 !important;
-}
-
 
 .App {
   display: flex;
   gap: 3rem;
-  
+  text-align: center;
 }
-.App > *{
+
+.App > * {
   flex-basis: 100px;
 }
 
-.button{
-  background-color: #A1887f;
+.button {
+  background-color: #A1887F;
   color: white;
-  width: 142px;
-  height: 42px;
+  width: 242px;
+  height: 72px;
+  flex-shrink: 0;
   border-radius: 0%;
   z-index: 1;
-  /* margin-left: 45%; */
+  border: none;
+  font-family: 'Poppins';
 }
 
-.button-group{
+.button-group {
   width: 284px;
   height: 42px;
-  /* margin-left: 45%; */
-  /* margin-top: 8%; */
   position: absolute;
   left: 807px;
-  top: 255px;
+  top: 45%;
   display: inline-flex;
   gap: 1rem;
 }
@@ -44,41 +45,44 @@ footer {
   bottom: 8px;
   right: 16px;
   padding: 2px;
-  /*background-color: #3e2723;*/
   color: #3e2723;
 }
 
 #circle {
-  background-color: #a1887f;
+  background-color: #A1887F;
   width: 620px;
   height: 560px;
   border-radius: 50%;
   position: relative;
   left: -179px;
-  top: 30px;
+  top: 10%;
 }
 
 .logo {
   z-index: 1;
   width: 350px;
   position: absolute;
-  top: 200px;
+  top: 35%;
   left: 230px;
   height: 200px;
   background-color: beige;
 }
 
-/*css for signup page*/
+/* CSS for signup page */
 
-.signup{
-  /* justify-content: center;
-  align-items: center; */
+.signup {
   text-align: center;
 }
-.font{
-  font-family: sans-serif;
+
+.Login {
+  text-align: center;
 }
-.signup_input{
+
+.font {
+  font-family: 'Poppins';
+}
+
+.signup_input {
   border-radius: 10px;
   background: #A1887F;
   width: 487px;
@@ -86,34 +90,34 @@ footer {
   flex-shrink: 0;
 }
 
-h1{
+h1,
+h4 {
   color: #6D4C41;
- font-family: "Sans-serif";
-  margin: 0px;
-  padding: 0px;
+  font-family: 'Sans-serif';
+  margin: 0;
+  padding: 0;
 }
 
-h4{
-  color: #6D4C41;
-  font-family: "Sans-serif";
+h4 {
   font-size: 14px;
-margin: 5px;    line-height: normal;
+  margin: 5px;
+  line-height: normal;
 }
 
-
-button{
+button {
   width: 242px;
   height: 72px;
   flex-shrink: 0;
   background: #795548;
   color: #FFF;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
+  border: none;
+
 }
 
-input{
+input {
   color: #FFF;
   font-size: 20px;
   font-weight: 700;
@@ -121,16 +125,16 @@ input{
   margin: 10px;
   border: 0;
   padding-left: 30px;
-  
 }
+
 .account {
   display: flex;
   flex-direction: row;
- justify-content: center;
+  justify-content: center;
 }
-::placeholder{
-  font-family: Sans-serif;
+
+::placeholder {
+  font-family: 'Sans-serif';
   font-size: 20px;
   color: white;
-
 }

@@ -13,10 +13,4 @@ function App() {
       <RouteToPage/>
     </div>
   )}
-    
-
-
-
-
-
 export default App;
