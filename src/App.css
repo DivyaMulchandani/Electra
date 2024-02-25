@@ -57,7 +57,7 @@ footer {
   top: 30px;
 }
 
-#logo {
+.logo {
   z-index: 1;
   width: 350px;
   position: absolute;

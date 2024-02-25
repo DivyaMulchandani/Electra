@@ -14,9 +14,9 @@ function App() {
   return (
     <>
     <Mainpage />
-    <Signup />
+    {/* <Signup />
     <User_login/>
-    <Admin_login/>
+    <Admin_login/> */}
     </>
   );
 }
