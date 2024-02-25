@@ -1,0 +1,30 @@
+.font{
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+.profile {
+    display: flex;
+    font-family: Poppins;
+  }
+
+.right {
+    margin: 0px;
+    background-color: #D7CCC8;
+}
+
+.left {
+    margin: 0px;
+    background-color: #A1887F;
+    flex: 1;
+}
+
+.text{
+    color: #5D4037;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
