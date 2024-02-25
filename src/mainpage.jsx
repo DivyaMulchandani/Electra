@@ -1,7 +1,6 @@
 import "./App.css";
 import * as React from 'react';
 import Footer from "./footer";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import * as Navigation from "./navigation";
 import logo from "./logo.svg"
@@ -9,21 +8,19 @@ import logo from "./logo.svg"
 function Mainpage() {
   return (
     <div className="App">
-      <div id="main">
+      <div class="main">
         <div id="circle"></div>
-        <div id="logo"></div>
-        <Stack direction="row" class= "button-group" spacing={2}>
-          
-
-
+        <div class="logo">
+          <img class="logo" src={logo} alt="logo"></img>
+        </div>
+        <div direction="row" class= "button-group" spacing={2}>
           <Button variant="contained" class="button"  >
-
             User Login
           </Button>
           <Button variant="contained" class="button" >
             Admin Login
           </Button>
-        </Stack>
+        </div>
       </div>
       <Footer/>
     </div>
