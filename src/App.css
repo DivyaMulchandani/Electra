@@ -1,6 +1,11 @@
 #main {
   display: inline-block;
+  
 }
+body{
+  background-color: #D7CCC8 !important;
+}
+
 
 .button{
   background-color: #A1887f;
