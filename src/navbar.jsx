@@ -203,11 +203,6 @@ function ResponsiveDrawer(props) {
         sx={{ flexGrow: 1, p: 3,  }}
       >
         <Toolbar />
-        
-
-       
-
-        
       </Box>
     </Box>
   );

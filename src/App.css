@@ -1,3 +1,4 @@
+
 #main {
   display: inline-block;
   
@@ -7,12 +8,21 @@ body{
 }
 
 
+.App {
+  display: flex;
+  gap: 3rem;
+}
+.App > *{
+  flex-basis: 100px;
+}
+
 .button{
   background-color: #A1887f;
   color: white;
   width: 142px;
   height: 42px;
   border-radius: 0%;
+  z-index: 1;
   /* margin-left: 45%; */
 }
 
@@ -20,21 +30,18 @@ body{
   width: 284px;
   height: 42px;
   /* margin-left: 45%; */
-  margin-top: 8%;
+  /* margin-top: 8%; */
   position: absolute;
   left: 807px;
-  top: 165px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  top: 255px;
+  display: inline-flex;
+  gap: 1rem;
 }
 
 footer {
   position: fixed;
   bottom: 8px;
   right: 16px;
-  display: flex;
-  justify-content: right;
   padding: 2px;
   /*background-color: #3e2723;*/
   color: #3e2723;

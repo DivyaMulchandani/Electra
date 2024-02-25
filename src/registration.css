@@ -1,0 +1,38 @@
+
+.font{
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .voterreg {
+    display: flex;
+    /* justify-content: space-between; 
+    justify-content: center;
+    align-items: center;
+    text-align: center; */
+  }
+
+  .right {
+    margin: 0px;
+    background-color: #D7CCC8;
+}
+
+.left {
+    background-color: #A1887F;
+    /* flex: 1; */
+}
+
+.button2{
+    width: 401px;
+    height: 65px;
+    flex-shrink: 0;
+    background: #A1887F;
+    color: #FFF;
+    font-family: poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+  }
+  
