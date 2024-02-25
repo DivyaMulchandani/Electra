@@ -5,16 +5,20 @@
 
 .profile {
     display: flex;
+    flex-direction: row;
+    width: 99vw;
     font-family: Poppins;
   }
 
 .right {
     margin: 0px;
+    width: 80%;
     background-color: #D7CCC8;
 }
 
 .left {
     margin: 0px;
+    width: 20%;
     background-color: #A1887F;
     flex: 1;
 }

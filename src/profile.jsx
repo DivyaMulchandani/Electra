@@ -4,7 +4,7 @@ import  "./profile.css"
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-import Ellipse from './ellipse.svg';
+// import Ellipse from './ellipse.svg';
 
 function Profile () {
     return(
@@ -18,7 +18,7 @@ function Profile () {
                 <h1 className='font' >PROFILE</h1>
                 <hr color="#5D4037"/>
                 <div className="text">
-                    <img src={Ellipse} alt="Ellipse" width="150px" height="150px" />
+                    {/* <img src={Ellipse} alt="Ellipse" width="150px" height="150px" /> */}
                     <p>Yash Jaiswal</p>
                     <p><span>Email address : </span><span>yashjaiswal@nuv.ac.in</span></p>
                     <p><span>School : </span><span>School of Technology</span></p>

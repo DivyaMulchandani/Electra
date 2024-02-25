@@ -23,7 +23,7 @@ function Enroll () {
                 <hr color="#5D4037"/>
                 <Box
                     height={676}
-                    width={773}
+                    width={700}
                     display={'flex'}
                     alignItems={'center'}
                     flexDirection={'column'}

@@ -6,6 +6,7 @@
 
   .voterreg {
     display: flex;
+    width: 99vw;
     /* justify-content: space-between; 
     justify-content: center;
     align-items: center;
@@ -15,10 +16,12 @@
   .right {
     margin: 0px;
     background-color: #D7CCC8;
+    width: 80%;
 }
 
 .left {
     background-color: #A1887F;
+    width: 20%;
     /* flex: 1; */
 }
 

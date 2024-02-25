@@ -2,7 +2,6 @@ import "./App.css";
 import * as React from 'react';
 import Footer from "./footer";
 import Button from "@mui/material/Button";
-import * as Navigation from "./navigation";
 import logo from "./logo.svg"
 
 function Mainpage() {
