@@ -9,9 +9,7 @@ function Mainpage() {
     <div className="App">
       <div class="main">
         <div id="circle"></div>
-        <div class="logo">
           <img class="logo" src={logo} alt="logo"></img>
-        </div>
         <div direction="row" class= "button-group" spacing={2}>
           <Button variant="contained" class="button"  >
             User Login
