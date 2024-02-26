@@ -13,6 +13,7 @@ import { Enrolled } from "../enrolled";
 import { Accepted } from "../accepted";
 import { Details } from "../details";
 import { Phase } from "../changephase";
+import Signup from "../signup";
 function RouteToPage()
 {
     return(
@@ -30,6 +31,7 @@ function RouteToPage()
             <Route exact path='/accepted' element={<Accepted/>}></Route>
             <Route exact path='/details' element={<Details/>}></Route>
             <Route exact path='/changephase' element={<Phase/>}></Route>
+            <Route exact path='/signup' element={<Signup/>}></Route>
 
 
 

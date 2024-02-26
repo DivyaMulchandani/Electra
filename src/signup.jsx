@@ -1,5 +1,7 @@
 import './App.css'
 import Logo from "./logo";
+
+import { Link } from 'react-router-dom';
 function Signup() {
   return (
     <div className='signup'>
@@ -16,7 +18,7 @@ function Signup() {
                 <input type="text" id="clgname" name="clgname" placeholder="Enter College Name" className='signup_input'/><br></br>
                 <input placeholder='Enter password' type="password" id="pass" name="password" className='signup_input'/><br></br>
                 <input placeholder="Enter Confirm Password"  type="password" id="cpass" name="confirmpassword" className='signup_input'/><br></br>
-                <button>Sign up</button>
+                <Link to={'/userlogin'} className='link'><button>Sign up</button></Link>
             </form>
         </div>
     </div>

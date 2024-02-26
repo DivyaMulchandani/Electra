@@ -3,7 +3,8 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Footer from "./footer";
-
+import Logo from "./logo";
+import { Link } from 'react-router-dom';
 function User_login() {
   return (
     <div className="Login">
@@ -12,7 +13,10 @@ function User_login() {
         <h1 className="font">Login</h1>
         <div className="account">
           <h4 className="font">Don’t have an account?</h4>
+          
+        <Link to={'/signup'} className='link'>
           <h4 className="font">Sign up</h4>
+          </Link>
         </div>
 
         <form>
@@ -34,7 +38,7 @@ function User_login() {
           <br></br>
           <Link to={'/dashboard'} className='link'>
           <Button>
-            <button>Sign up</button>
+            <button>Login</button>
           </Button>
           </Link>
         </form>

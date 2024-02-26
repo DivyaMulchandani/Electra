@@ -5,14 +5,6 @@
     height: 100vh;
     width: 99vw;
 }
-body h4 {
-    color: #795548;
-}
-body h2 {
-    color: #795548;
-    font-weight: 900;
-    font-size: 30px;
-}
 
 
 .right {
@@ -22,6 +14,8 @@ body h2 {
     padding-left: 5%;
     width: 80%;
     text-align: left;
+    
+    font-family: Poppins;
 }
 .line {
     width: 96%;
@@ -33,6 +27,8 @@ body h2 {
     font-weight: 700;
     font-size: 45px;
     color: #5D4037;
+    
+    font-family: Poppins;
 }
 
 .h3 {
@@ -56,7 +52,7 @@ body h2 {
 
 .box{
     width: 240px;
-    height: 250px;
+    height: 270px;
     border: 2px solid #5D4037;
     margin: 20px;
     margin-left: 50px;
@@ -77,6 +73,44 @@ button{
     width: 155px;
     height: 30px;
     background-color:  #A1887F;
-    ;
+    .right h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+}
+
+.right h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right p{
+    font-weight: 700;
+    font-size: 16px;
+    color: #795548;
+    text-align: center;
+    font-family: Poppins;
 }
 

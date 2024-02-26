@@ -4,7 +4,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import "./navbar.css"
-import "./dashboard.css"
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -24,6 +23,10 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import logo from "./logo2.svg"
 import { Link } from 'react-router-dom';
+
+import "@fontsource/poppins"; // Defaults to weight 400
+import "@fontsource/poppins/400.css"; // Specify weight
+import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 const useStyles = makeStyles({
   root: {
     background: "#A1887F",
@@ -66,7 +69,7 @@ function ResponsiveDrawer(props) {
       setMobileOpen(!mobileOpen);
     }
   };
-  const classes = useStyles();
+   const classes = useStyles();
   const icons = [
     'InboxIcon', 'MailIcon'
 
@@ -83,7 +86,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <EditCalendarOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Dashboard" />
             </ListItemButton>
           </ListItem>
@@ -94,7 +97,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <PermIdentityOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Profile" />
             </ListItemButton>
           </ListItem>
@@ -107,7 +110,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <HowToRegOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Voter Registration" />
             </ListItemButton>
           </ListItem>
@@ -118,7 +121,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <BookmarkAddOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Enroll as Candidate" />
             </ListItemButton>
           </ListItem>
@@ -130,7 +133,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <WhereToVoteOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Voting Area" />
             </ListItemButton>
           </ListItem>
@@ -142,7 +145,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <CommentOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Result" />
             </ListItemButton>
           </ListItem>
@@ -153,7 +156,7 @@ function ResponsiveDrawer(props) {
               <ListItemIcon>
                 <ExitToAppOutlinedIcon />
               </ListItemIcon>
-              <ListItemText
+              <ListItemText className='navitem'
                 primary="Logout" />
             </ListItemButton>
           </ListItem>

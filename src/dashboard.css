@@ -4,14 +4,7 @@
     padding: 0px;
     height: 100vh;
 }
-body h4 {
-    color: #795548;
-}
-body h2 {
-    color: #795548;
-    font-weight: 900;
-    font-size: 30px;
-}
+
 
 .right {
     margin: 0px;
@@ -19,7 +12,6 @@ body h2 {
     padding: 2%;
     padding-left: 5%;
     width: 80%;
-    text-align: left;
 }
 .line {
     width: 96%;
@@ -27,9 +19,10 @@ body h2 {
     background-color: black;
 }
 .right h1 {
-    font-weight: 800;
-    font-size: 45px;
+    font-weight: 700;
+    font-size: 48px;
     color: #5D4037;
+    font-family: Poppins;
 }
 .left {
     padding: 2%;
@@ -42,4 +35,19 @@ body h2 {
     background-color: #A1887F;
     padding-top: 0px;
     margin-top: 0px;
+}
+.right h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
 }

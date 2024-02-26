@@ -33,7 +33,7 @@ function Admin_login() {
           <Link to={'/enrolled'} className='link'>
           <Button>
 
-            <button>Sign up</button>
+            <button>Login</button>
           </Button>
           </Link>
           
