@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from '@mui/material/Typography';
-import ResponsiveDrawer from './navbar';
+import ResponsiveDrawer from './navbar2';
 import  "./changephase.css";
 
 

@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from '@mui/material/Typography';
-import ResponsiveDrawer from './navbar';
+import ResponsiveDrawer from './navbar2';
 import "./enrolled.css";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';

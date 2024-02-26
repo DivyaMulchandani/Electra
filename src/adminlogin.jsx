@@ -4,6 +4,8 @@ import Button from "@mui/material/Button";
 import Footer from "./footer";
 import Logo from "./logo";
 
+import { Link } from 'react-router-dom';
+
 function Admin_login() {
   return (
     <div className="Login">
@@ -28,9 +30,13 @@ function Admin_login() {
             className="signup_input"
           />
           <br></br>
+          <Link to={'/enrolled'} className='link'>
           <Button>
+
             <button>Sign up</button>
           </Button>
+          </Link>
+          
         </form>
       </div>
       <Footer />

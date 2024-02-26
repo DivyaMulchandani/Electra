@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import  "./enrolled.css"
+import "./enrolled.css"
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
@@ -23,27 +23,28 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import logo from "./logo.svg"
 
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
-    root: {
-      background:"#A1887F",
-      padding:"0px",
-      height: "100vh"
-    },
+  root: {
+    background: "#A1887F",
+    padding: "0px",
+    height: "100vh"
+  },
 
-    back:
-    {
-      background:"#D7CCC8"
-    }
-    ,
-    text:{
-      color:"#5D4037",fontWeight: 'bold'
-    },
-    text1:
-    {
-      color:'#795548'
-    }
-  });
-  
+  back:
+  {
+    background: "#D7CCC8"
+  }
+  ,
+  text: {
+    color: "#5D4037", fontWeight: 'bold'
+  },
+  text1:
+  {
+    color: '#795548'
+  }
+});
+
 const drawerWidth = 310;
 
 function ResponsiveDrawer(props) {
@@ -67,66 +68,74 @@ function ResponsiveDrawer(props) {
   };
   const classes = useStyles();
   const icons = [
-    'InboxIcon','MailIcon'
-    
+    'InboxIcon', 'MailIcon'
+
   ];
 
   const drawer = (
-    <div className={classes.root}> 
-      <Toolbar  />
-            <img src={logo} className="logos"/>
-            <List > 
-                            <ListItem divider> 
-                                <ListItemButton> 
-                                    <ListItemIcon> 
-                                        <EditCalendarOutlinedIcon /> 
-                                    </ListItemIcon> 
-                                    <ListItemText  
-                                        primary="Enrolled candidates" /> 
-                                </ListItemButton> 
-                            </ListItem> 
-                            <ListItem divider> 
-                                <ListItemButton> 
-                                    <ListItemIcon> 
-                                        <PermIdentityOutlinedIcon /> 
-                                    </ListItemIcon> 
-                                    <ListItemText  
-                                        primary="Accepted candidates" /> 
-                                </ListItemButton> 
-                            </ListItem> 
-  
-                            <ListItem divider> 
-                                <ListItemButton> 
-                                    <ListItemIcon> 
-                                        <HowToRegOutlinedIcon /> 
-                                    </ListItemIcon> 
-                                    <ListItemText  
-                                        primary="Voter details" /> 
-                                </ListItemButton> 
-                            </ListItem> 
-                            <ListItem divider> 
-                                <ListItemButton> 
-                                    <ListItemIcon> 
-                                        <BookmarkAddOutlinedIcon /> 
-                                    </ListItemIcon> 
-                                    <ListItemText  
-                                        primary="Change phase" /> 
-                                </ListItemButton> 
-                            </ListItem> 
+    <div className={classes.root}>
+      <Toolbar />
+      <img src={logo} className="logos" />
+      <List >
+        <Link to={'/enrolled'} className='link'>
+          <ListItem divider>
+            <ListItemButton>
+              <ListItemIcon>
+                <EditCalendarOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Enrolled candidates" />
+            </ListItemButton>
+          </ListItem>
+          </Link>
+          <Link to={'/accepted'} className='link'>
+          <ListItem divider>
+            <ListItemButton>
+              <ListItemIcon>
+                <PermIdentityOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Accepted candidates" />
+            </ListItemButton>
+          </ListItem>
+          </Link>
+          <Link to={'/details'} className='link'>
+
+          <ListItem divider>
+            <ListItemButton>
+              <ListItemIcon>
+                <HowToRegOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Voter details" />
+            </ListItemButton>
+          </ListItem>
+          </Link>
+          <Link to={'/changephase'} className='link'>
+          <ListItem divider>
+            <ListItemButton>
+              <ListItemIcon>
+                <BookmarkAddOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Change phase" />
+            </ListItemButton>
+          </ListItem>
+          </Link>
 
 
-                            
 
-                            <ListItem divider> 
-                                <ListItemButton> 
-                                    <ListItemIcon> 
-                                        <ExitToAppOutlinedIcon /> 
-                                    </ListItemIcon> 
-                                    <ListItemText  
-                                        primary="Logout" /> 
-                                </ListItemButton> 
-                            </ListItem> 
-                        </List> 
+
+          <ListItem divider>
+            <ListItemButton>
+              <ListItemIcon>
+                <ExitToAppOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Logout" />
+            </ListItemButton>
+          </ListItem>
+      </List>
     </div>
   );
 
@@ -134,25 +143,25 @@ function ResponsiveDrawer(props) {
 
   return (
     <Box >
-      <CssBaseline  />
-      
-          <IconButton
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-      
-      <Box 
+      <CssBaseline />
+
+      <IconButton
+        aria-label="open drawer"
+        edge="start"
+        onClick={handleDrawerToggle}
+        sx={{ mr: 2, display: { sm: 'none' } }}
+      >
+        <MenuIcon />
+      </IconButton>
+
+      <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Drawer 
-        
+        <Drawer
+
           container={container}
           variant="temporary"
           open={mobileOpen}
@@ -169,7 +178,7 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
         <Drawer
-        
+
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
@@ -180,16 +189,16 @@ function ResponsiveDrawer(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box 
+      <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3,  }}
+        sx={{ flexGrow: 1, p: 3, }}
       >
         <Toolbar />
-        
 
-       
 
-        
+
+
+
       </Box>
     </Box>
   );

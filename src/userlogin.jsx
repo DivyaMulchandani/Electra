@@ -3,7 +3,6 @@ import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Footer from "./footer";
-import Logo from "./logo";
 
 function User_login() {
   return (
@@ -33,9 +32,11 @@ function User_login() {
             className="signup_input"
           />
           <br></br>
+          <Link to={'/dashboard'} className='link'>
           <Button>
             <button>Sign up</button>
           </Button>
+          </Link>
         </form>
       </div>
       <Footer />
