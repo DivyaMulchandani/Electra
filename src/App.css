@@ -1,6 +1,11 @@
 body {
+  /* width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 25%;
+  padding: 0; */
   background-color: #D7CCC8 !important;
-  width: 90vw;
+  width: 100vw;
 }
 
 #main {
@@ -13,6 +18,8 @@ body {
   gap: 3rem;
   /* text-align: center; */
 }
+
+
 
 .App > * {
   flex-basis: 100px;
@@ -56,6 +63,7 @@ footer {
   position: relative;
   left: -179px;
   top: 10%;
+  /* top: 30%; */
 }
 
 .logo {
@@ -92,6 +100,7 @@ footer {
 
 h1,
 h4 {
+  text-align: center;
   color: #6D4C41;
   font-family: 'Sans-serif';
   margin: 0;

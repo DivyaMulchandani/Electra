@@ -33,9 +33,6 @@ function RouteToPage()
             <Route exact path='/changephase' element={<Phase/>}></Route>
             <Route exact path='/signup' element={<Signup/>}></Route>
 
-
-
-
         </Routes>
     )
 }

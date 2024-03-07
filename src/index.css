@@ -9,6 +9,11 @@ body {
   display: inline-block;
   background-color: #d7ccc8;
   margin: 0;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 code {

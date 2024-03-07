@@ -9,8 +9,9 @@ import { RouteToPage } from './Routes/route';
 
 function App() {
   return (
-    <div>
+    <div className='this'>
       <RouteToPage/>
     </div>
   )}
+   
 export default App;
