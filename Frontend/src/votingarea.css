@@ -1,0 +1,115 @@
+.main {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    width: 99vw;
+}
+
+
+.right {
+    margin: 0px;
+    background-color: #D7CCC8;
+    padding: 2%;
+    padding-left: 5%;
+    width: 80%;
+    text-align: left;
+    
+    font-family: Poppins;
+}
+.line {
+    width: 96%;
+    height: 1px;
+    background-color: black;
+    margin-bottom: 50px;
+}
+.right > h1 {
+    font-weight: 700;
+    font-size: 45px;
+    color: #5D4037;
+    font-family: Poppins;
+}
+
+.h3 {
+    font-weight: 600;
+    font-size: 25px;
+    color: #5D4037;
+    margin-top: 15px;
+}
+.left {
+    padding: 2%;
+    width: 20%;
+    background-color: #A1887F;
+}
+
+.logos {
+    width: 100%;
+    background-color: #A1887F;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.box{
+    width: 240px;
+    height: 270px;
+    border: 2px solid #5D4037;
+    margin: 20px;
+    margin-left: 50px;
+    padding: 0;
+    
+    }
+
+.hell{
+    display: flex;
+    text-align: center;
+}
+
+img{
+    margin-top: 10px;
+}
+
+button{
+    width: 155px;
+    height: 30px;
+    background-color:  #A1887F;
+    .right h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right h4 {
+    font-weight: 700;
+    font-size: 20px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+}
+
+.right h2 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.right h4 {
+    font-weight: 700;
+    font-size: 32px;
+    color: #795548;
+    text-align: left;
+    font-family: Poppins;
+}
+
+.text > p{
+    font-weight: 700;
+    font-size: 20px;
+    color: #795548;
+    text-align: center;
+    font-family: Poppins;
+}
+
