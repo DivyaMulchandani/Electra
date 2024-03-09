@@ -1,0 +1,50 @@
+.main {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
+body h4 {
+    color: #795548;
+}
+body h2 {
+    color: #795548;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.right {
+    margin: 0px;
+    background-color: #D7CCC8;
+    padding: 2%;
+    padding-left: 5%;
+    width: 80%;
+    text-align: left;
+}
+
+.titleList{
+    background-color: #A1887F;
+    font-weight: bold;
+}
+.line {
+    width: 96%;
+    height: 1px;
+    background-color: black;
+}
+.right h1 {
+    font-weight: 800;
+    font-size: 45px;
+    color: #5D4037;
+}
+.left {
+    padding: 2%;
+    width: 20%;
+    background-color: #A1887F;
+}
+
+.logos {
+    width: 100%;
+    background-color: #A1887F;
+    padding-top: 0px;
+    margin-top: 0px;
+}
