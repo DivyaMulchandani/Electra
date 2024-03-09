@@ -21,7 +21,7 @@ import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
 import WhereToVoteOutlinedIcon from '@mui/icons-material/WhereToVoteOutlined';
 import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import logo from "./logo.svg"
+import logo from "./logo2.svg"
 
 import { Link } from 'react-router-dom';
 const useStyles = makeStyles({

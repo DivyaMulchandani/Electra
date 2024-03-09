@@ -42,7 +42,7 @@ function User_login() {
           </Link>
         </form>
       </div>
-      <Footer />
+      <Footer/>
     </div>
   );
 }

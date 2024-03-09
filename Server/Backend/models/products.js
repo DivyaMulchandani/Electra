@@ -1,4 +1,5 @@
-const candidateSchema = new mangoose.Schema(
+const mongoose=require('mongoose');
+const candidateSchema = new mongoose.Schema(
 
     {
         "Name":{
@@ -7,8 +8,9 @@ const candidateSchema = new mangoose.Schema(
         } ,
         
         "Email": {
-           type : Email,
-           required:true
+           type :String, 
+           unique : true,
+           required : true 
         } ,
 
         "Password" : { 
@@ -23,26 +25,26 @@ const candidateSchema = new mangoose.Schema(
 
         "School": {
             type : String,
-            required:true
+            required:false
         } ,
 
         "Branch": {
             type : String,
-            required:true
+            required:false
         } ,
 
         "Gender" : {
             type : String,
-            required:true
+            required:false
         } ,
 
         "DOB": {
-            type : Date,
-            required:true
+            type : String,
+            required:false
         } ,
 
         "Mother's_DOB": {
-            type : Date,
+            type : String,
             required :false
         } ,
 
@@ -57,3 +59,7 @@ const candidateSchema = new mangoose.Schema(
         }
     }
 )
+
+const Candidates = mongoose.model("candidate", candidateSchema)
+
+module.exports = Candidates

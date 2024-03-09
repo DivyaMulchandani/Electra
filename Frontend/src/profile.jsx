@@ -4,12 +4,17 @@ import  "./profile.css"
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
+import Signup from "./signup";
 // import Ellipse from './ellipse.svg';
 
 function Profile () {
+
+
+
     return(
 
         <>
+        
         <div className="profile"  >
             <div className="left">
                 <ResponsiveDrawer/>         
