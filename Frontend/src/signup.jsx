@@ -12,9 +12,6 @@ function Signup() {
     const [password, setPassword] = useState('')
     const [conpassword, setconPassword] = useState('')
 
-
-    
-
     function postUser() {
         const userDetails = {
             Name : name,
@@ -22,13 +19,19 @@ function Signup() {
             Password : password,
             ConfirmPassword : conpassword
         }
-        if(conpassword!==password){
-            alert("Passwords do not match")
-        }else{
-        axios.post("http://localhost:2111/api/product", userDetails)
-        .then((res) => {console.log(res.data)})
-        .catch(err=>console.log(err));
-    }
+        var last = "@nuv.ac.in"
+        var mail = email.substring(email.length-10, email.length)
+        if (mail == last){
+            if(conpassword!==password){
+                alert("Passwords do not match")
+            }else{
+            axios.post("http://localhost:2111/api/product", userDetails)
+            .then((res) => {console.log(res.data)})
+            .catch(err=>console.log(err));
+        }
+        }else {
+            alert("Please enter your college mailid")
+        }   
     }
 
   return (
@@ -36,7 +39,6 @@ function Signup() {
     <div className='signup'>
         <Logo/>
         <div>
-            
             <h1 className='font'>SIGN UP</h1>
             <div className='account'>
                 <h4 className='font'>Already have an account?</h4>

@@ -4,7 +4,7 @@ const candidateSchema = new mongoose.Schema(
     {
         "Name":{
             type : String,
-            required:true
+            required:false
         } ,
         
         "Email": {
@@ -20,7 +20,7 @@ const candidateSchema = new mongoose.Schema(
 
         "ConfirmPassword" : {
             type : String,
-            required: true
+            required: false
         } ,
 
         "School": {

@@ -10,6 +10,19 @@ const getIndividualProduct = async (req, res) => {
     }
 }
 
+//finding id
+const checkLoginInfo = async (req, res) => {
+    try {
+        const mail = req.params.email
+        const product = await Candidates.find({Email : mail}).lean().exec()
+        res.status(201).json(product)
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({message: "Server Error"})
+    }
+}
+
 const postProduct = async (req, res) => {
     const {} = req.body
     try{
@@ -28,4 +41,6 @@ const postProduct = async (req, res) => {
 }
 
 
-module.exports={getIndividualProduct,postProduct};
+
+
+module.exports={getIndividualProduct,postProduct,checkLoginInfo};
