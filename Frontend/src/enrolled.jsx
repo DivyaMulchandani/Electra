@@ -1,3 +1,5 @@
+// Import your CSS file if not already imported
+
 import React from "react";
 import Typography from '@mui/material/Typography';
 import ResponsiveDrawer from './navbar2';
@@ -17,7 +19,11 @@ import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import "@fontsource/poppins"; // Defaults to weight 400
+import "@fontsource/poppins/400.css"; // Specify weight
+import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 
 function Enrolled() {
     const [dense, setDense] = React.useState(false);
@@ -28,7 +34,7 @@ function Enrolled() {
         { id: 1, name: 'Karishma Sinha', position: 'President', branch: 'CSE 4th year' },
         { id: 2, name: 'Sonalika Mittal', position: 'Secretary', branch: 'Mech 3th year' },
         { id: 3, name: 'Harsh Sehgal', position: 'President', branch: 'Civil 4th year' },
-        { id: 4, name: 'Yug Patel', position: 'Vice President', branch: 'CSE 3rd year' }
+        { id: 4, name: 'Yugind Shukla', position: 'Treasurer', branch: 'CSE 3rd year' }
     ];
 
     return (
@@ -54,8 +60,8 @@ function Enrolled() {
                             {enrolledCandidates.map(candidate => (
                                 <ListItem key={candidate.id}
                                     secondaryAction={
-                                        <IconButton edge="end" aria-label="ok">
-                                            <ThumbUpAltOutlinedIcon />
+                                        <IconButton edge="end" aria-label="ok" className="iconButton">
+                                            <ThumbUpIcon />
                                         </IconButton>
                                     }
                                 >

@@ -16,7 +16,7 @@ function Phase () {
                 <h1>CHANGE PHASE</h1>
                 <div className="line"></div>
             
-                <h2 class="h2">Current Phase : Voting open</h2>
+                <h3>Current Phase : Voting open</h3>
                 <button>Change Phase</button>
                 
             
