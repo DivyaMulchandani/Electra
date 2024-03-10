@@ -32,6 +32,10 @@ const candidateSchema = new mongoose.Schema(
             type : String,
             required:false
         } ,
+        "Year": {
+            type : String,
+            required:false
+        } ,
 
         "Gender" : {
             type : String,
