@@ -1,8 +1,8 @@
-import "./votingarea.css";
+import React from "react";
+import "./votingarea.css"
 import ResponsiveDrawer from "./navbar";
-import profile from "./profile.svg";
-
-import React, { useState } from "react";
+import profile from "./profile.svg"
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -11,112 +11,114 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
+
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 
 function VotingArea() {
-  const [openDialog, setOpenDialog] = useState(false);
 
-  const handleDialogOpen = () => {
-    setOpenDialog(true);
-  };
+    const [openDialog, setOpenDialog] = useState(false);
 
-  const handleDialogClose = () => {
-    setOpenDialog(false);
-  };
+    const handleDialogOpen = () => {
+        setOpenDialog(true);
+    };
 
-  const handleDialogSubmit = (event) => {
-    event.preventDefault();
-    // Handle form submission logic here
-    handleDialogClose();
-  };
+    const handleDialogClose = () => {
+        setOpenDialog(false);
+    };
 
-  return (
-    <>
-      <div className="main">
-        <div className="left">
-          <ResponsiveDrawer />
-        </div>
-        <div className="right">
-          <h1>Voting area</h1>
-          <div className="line"></div>
+    const handleDialogSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission logic here
+        handleDialogClose();
+    };
+    return (
 
-          <ul>
-            <h4>
-              <li type="1">President</li>
-            </h4>
+        <>
+            <div className="main"  >
+                <div className="left">
+                    <ResponsiveDrawer />
+                </div>
+                <div className="right">
+                    <h1>Voting area</h1>
+                    <div className="line"></div>
 
-            <div className="hell">
-              <div class="box">
-                <img src={profile} />
+                    <ul>
+                        <h4><li type="1">President</li></h4>
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
+                        <div className="hell">
+                            <div class="box">
+                                <img src={profile} />
 
-              <div class="box">
-                <img src={profile} />
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
 
-              <div class="box">
-                <img src={profile} />
+                            </div>
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
-            </div>
+                            <div class="box">
 
-            <h4>
-              <li type="1">Vice President</li>
-            </h4>
+                                <img src={profile} />
 
-            <div className="hell">
-              <div class="box">
-                <img src={profile} />
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
+                            </div>
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
+                            <div class="box">
 
-              <div class="box">
-                <img src={profile} />
+                                <img src={profile} />
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
+                            </div>
 
-              <div class="box">
-                <img src={profile} />
 
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
-                <button type="button" onClick={handleDialogOpen}>
-                  Vote
-                </button>
-              </div>
-            </div>
-          </ul>
+                        </div>
 
-          <Dialog
+                        <h4><li type="1">Vice President</li></h4>
+
+                        <div className="hell">
+                            <div class="box">
+                                <img src={profile} />
+
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
+
+
+                            </div>
+
+                            <div class="box">
+
+                                <img src={profile} />
+
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
+                            </div>
+
+                            <div class="box">
+
+                                <img src={profile} />
+
+                                <p>Karishma Sinha</p>
+                                <p>CSE 4th year</p>
+                                <button onClick={handleDialogOpen}>Vote</button>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </ul>
+
+
+                    <Dialog
             open={openDialog}
             onClose={handleDialogClose}
             PaperProps={{
@@ -165,7 +167,7 @@ function VotingArea() {
                 margin="dense"
                 id="first_school"
                 name="first_school"
-                label="What is the name of your first school?"
+                label="What is the name of your first school?"
                 type="number"
                 fullWidth
                 variant="standard"
@@ -184,10 +186,13 @@ function VotingArea() {
               </Button>
             </DialogActions>
           </Dialog>
-        </div>
-      </div>
-    </>
-  );
+
+
+
+                </div>
+            </div>
+        </>
+    )
 }
 
-export { VotingArea };
+export { VotingArea }

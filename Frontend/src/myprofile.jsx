@@ -58,9 +58,11 @@ function MyProfile() {
             </label>
           </div>
           <br />
+          <Link to={'/userlogin'} className='link'>
           <button type="button">
             Continue
           </button>
+          </Link>
         </form>
       </div>
     </div>

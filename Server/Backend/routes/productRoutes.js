@@ -5,4 +5,5 @@ const {getIndividualProduct,postProduct,checkLoginInfo}=require("../controller/p
 router.post("/product",postProduct);
 router.get("/product",getIndividualProduct);
 router.get("/product/:email",checkLoginInfo);
+
 module.exports=router;
