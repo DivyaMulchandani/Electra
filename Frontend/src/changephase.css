@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     height: 100vh;
+    font-family: Poppins;
 }
 body h4 {
     color: #795548;
@@ -21,9 +22,7 @@ body h2 {
     width: 80%;
     text-align: center;
 }
-.h2{
-    text-align: center;
-}
+
 .right button{
     background-color: #A1887F;
     width: 170px;

@@ -3,6 +3,7 @@
     margin: 0px;
     padding: 0px;
     height: 100vh;
+    font-family: Poppins;
 }
 body h4 {
     color: #795548;
@@ -42,9 +43,20 @@ body h2 {
     background-color: #A1887F;
 }
 
+.iconButton {
+    background-color: transparent !important;
+}
+
+.iconButton .MuiSvgIcon-root {
+    color: #5D4037 !important;
+}
+
+
+
 .logos {
     width: 100%;
     background-color: #A1887F;
     padding-top: 0px;
     margin-top: 0px;
 }
+

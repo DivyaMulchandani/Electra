@@ -9,7 +9,6 @@ const candidateSchema = new mongoose.Schema(
         
         "Email": {
            type :String, 
-           unique : true,
            required : true 
         } ,
 
@@ -29,6 +28,10 @@ const candidateSchema = new mongoose.Schema(
         } ,
 
         "Branch": {
+            type : String,
+            required:false
+        } ,
+        "Year": {
             type : String,
             required:false
         } ,
