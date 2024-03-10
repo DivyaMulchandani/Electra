@@ -10,18 +10,25 @@ import profile from "./profile.svg"
 
 
 function Profile () {
+    
 
     const [details, setDetails] = useState([])
 
     useEffect(() => {
+        
         const user = JSON.parse(localStorage.getItem("user"))
+        
         if(user) {
-
             setDetails(user)
+          
         }
 
     },[])
-    console.log(details)
+    if (Object.keys(details).length === 0) {
+        return null;
+    }
+    console.log(details[0].Email)
+    
 
 
     return(

@@ -43,4 +43,20 @@ const postProduct = async (req, res) => {
 
 
 
-module.exports={getIndividualProduct,postProduct,checkLoginInfo};
+const patchCand = async (req, res) => {
+    const mail = req.params.email;
+    try {
+        const product = await Candidates.findOneAndUpdate({Email:mail}, {$set: req.body}, { new: true });
+        if (!product) {
+            return res.status(404).json({ error: 'Candidate not found' });
+        }
+        res.status(200).json(product);
+    } catch (error) {
+        console.log(error);
+        console.log("geki")
+        res.status(500).json({ error: 'Sorry! Something went wrong' });
+    }
+}
+
+
+module.exports={getIndividualProduct,postProduct,checkLoginInfo,patchCand};
