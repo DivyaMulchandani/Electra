@@ -10,6 +10,7 @@ const connectDb=async()=>{
             })
             console.log("Connection Success");
     }catch(err){
+        console.log(err)
         console.log("Connection UnSuccess");
     }
 }

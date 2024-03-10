@@ -9,7 +9,6 @@ const candidateSchema = new mongoose.Schema(
         
         "Email": {
            type :String, 
-           unique : true,
            required : true 
         } ,
 
