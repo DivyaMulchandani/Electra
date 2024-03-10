@@ -125,7 +125,7 @@ function ResponsiveDrawer(props) {
 
 
 
-
+          <Link to={'/'} className='link'>
           <ListItem divider>
             <ListItemButton>
               <ListItemIcon>
@@ -135,6 +135,7 @@ function ResponsiveDrawer(props) {
                 primary="Logout" />
             </ListItemButton>
           </ListItem>
+          </Link>
       </List>
     </div>
   );
