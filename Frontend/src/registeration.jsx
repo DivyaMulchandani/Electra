@@ -53,7 +53,7 @@ function VoterRegistration () {
                     mx="auto"
                     >
                     <TextField id="standard-basic" label="What is your mother's date of birth?" variant="standard"/><br></br>
-                    <TextField id="standard-basic" label="Which city where you born in?" variant="standard" /><br></br>
+                    <TextField id="standard-basic" label="Which city were you born in?" variant="standard" /><br></br>
                     <TextField id="standard-basic" label="What is the name of your first school?" variant="standard" /><br></br>
                     <Button variant="contained" class="button2" style={{ width: '16ch', minWidth: 'initial', maxWidth: 'initial' }}>REGISTER</Button>
                 </Box>

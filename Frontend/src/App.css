@@ -35,6 +35,8 @@ body {
   z-index: 1;
   border: none;
   font-family: 'Poppins';
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .button-group {
@@ -96,6 +98,7 @@ footer {
   width: 487px;
   height: 69px;
   flex-shrink: 0;
+  
 }
 .pointer {
   cursor: pointer;
@@ -111,21 +114,23 @@ h4 {
 
 h4 {
   font-size: 14px;
-  margin: 5px;
+  margin: 2px;
   line-height: normal;
 }
 
-button {
+.button1 {
   width: 242px;
   height: 72px;
   flex-shrink: 0;
   background: #795548;
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
+  font-style: normal;
   font-weight: 700;
   line-height: normal;
   border: none;
-
+  font-family: "Poppins";
+  /* margin-top: 50px; */
 }
 
 input {
@@ -145,7 +150,7 @@ input {
 }
 
 ::placeholder {
-  font-family: 'Sans-serif';
+  font-family: 'Poppins';
   font-size: 20px;
   color: white;
 }

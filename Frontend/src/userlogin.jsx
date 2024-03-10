@@ -1,46 +1,20 @@
 import "./App.css";
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Footer from "./footer";
 import Logo from "./logo";
 import { Link } from 'react-router-dom';
-import axios from "axios";
-import { useState , useEffect } from "react";
 function User_login() {
-
-   const [email, setEmail] = useState('')
-   const [password, setPassword] = useState('')
-   const [item, setItem] = useState([])
-  useEffect(() => {
-    axios.get("http://localhost:2111/api/product/:Email")
-      .then(response => setItem(response.data))
-      .catch(error => console.error(error));
-  }, []);
-  function handleSubmit() {
-      const userDetails = {
-          Email : email,
-          Password : password,
-      }
-          // axios.get("http://localhost:2111/api/product")
-          // .then((res) => {setItem(res.data)})
-          // .catch(err=>console.log(err));
-
-          
-  }
-
-
-
   return (
     <div className="Login">
-      <Logo/>
+      <Logo />
       <div>
         <h1 className="font">Login</h1>
         <p>{item}</p>
         <div className="account">
-          <h4 className="font">Don’t have an account?</h4>
-          
-        <Link to={'/signup'} className='link'>
-          <h4 className="font">Sign up</h4>
+          <h4 className="font">Don't have an account?</h4>
+
+          <Link to={"/signup"} className="link">
+            <h4 className="font">Sign up</h4>
           </Link>
         </div>
 
@@ -58,15 +32,64 @@ function User_login() {
             id="pass"
             name="password"
             className="signup_input"
-            onChange={(e) => setPassword(e.target.value)}/><br></br>
-          {/* <Link to={'/dashboard'} className='link'> */}
+          />
+          <br></br>
+          <Link to={'/dashboard'} className='link'>
           <Button>
-            <button className="pointer"  onClick={() => handleSubmit()}>Login</button>
+            <button className="pointer">Login</button>
           </Button>
-          {/* </Link> */}
+          </Link>
         </form>
+
+        <Dialog
+          open={openDialog}
+          onClose={handleDialogClose}
+          PaperProps={{
+            style: {
+              backgroundColor: "#e5ded9", // Background color for the entire dialog
+            },
+          }}
+        >
+          <DialogTitle
+            style={{
+              textAlign: "center",
+              color: "#4e3b32",
+              fontWeight: "bold",
+            }}
+          >
+            Verification
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText style={{ color: "#4e3b32" }}>
+              We have sent you a One Time Password on your college email.
+            </DialogContentText>
+            <TextField
+              autoFocus
+              required
+              margin="dense"
+              id="otp"
+              name="otp"
+              label="Enter OTP"
+              type="number"
+              fullWidth
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogActions style={{ justifyContent: "center" }}>
+            <Button
+              style={{
+                color: "#4e3b32",
+                fontWeight: "bolder",
+                fontSize: "20px",
+              }}
+              type="submit"
+            >
+              Next
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

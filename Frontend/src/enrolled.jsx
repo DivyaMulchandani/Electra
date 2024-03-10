@@ -19,6 +19,10 @@ import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 
+import "@fontsource/poppins";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/400-italic.css";
+
 function Enrolled() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);

@@ -1,0 +1,85 @@
+.myprofile {
+  justify-content: center;
+  /* align-items: center; */
+  text-align: center;
+}
+
+body{
+  background-color: #D7CCC8
+}
+
+.font {
+  font-family: "Poppins";
+}
+
+.profile_input {
+  border-radius: 10px;
+  background: #a1887f;
+  width: 487px;
+  height: 69px;
+  flex-shrink: 0;
+  align-content: center;
+  font-family: "Poppins";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 30px; /* because the date picker was touching the end of input text box */
+}
+
+h1 {
+  color: #6d4c41;
+  font-family: "Poppins";
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  width: 242px;
+  height: 72px;
+  flex-shrink: 0;
+  background: #795548;
+  color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  font-family: "Poppins";
+}
+
+input {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 10px;
+  border: 0;
+  padding-left: 30px;
+}
+
+::placeholder {
+  font-family: "Poppins";
+  font-size: 20px;
+  color: white;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+  margin: 10px;
+  border: 0;
+  padding-left: 30px;
+}
+
+.radio-container input {
+  margin-right: 5px; /* Adjust this value for spacing between radio button and label */
+}
+
+.radio-container label {
+  display: flex;
+  align-items: center;
+}
