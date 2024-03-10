@@ -11,19 +11,19 @@ function Admin_login() {
     <div className="Login">
       <Logo />
       <div>
-        <h1 className="font">Admin Login</h1>
+        <h1 className="font">ADMIN LOGIN</h1>
 
         <form>
           <input
             type="text"
             id="email"
             name="email"
-            placeholder="Enter Email"
+            placeholder="Enter College Email"
             className="signup_input"
           />
           <br></br>
           <input
-            placeholder="Enter password"
+            placeholder="Enter Password"
             type="password"
             id="pass"
             name="password"

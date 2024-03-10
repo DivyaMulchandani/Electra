@@ -6,7 +6,8 @@ import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 import Signup from "./signup";
 import { useEffect } from "react";
-// import Ellipse from './ellipse.svg';
+import profile from "./profile.svg"
+
 
 function Profile () {
 
@@ -35,6 +36,8 @@ function Profile () {
                 <h1 className='font' >PROFILE</h1>
                 <hr color="#5D4037"/>
                 <div className="text">
+
+                <img src={profile} alt="Profile Picture" width="150" height="100"/>
                     
                     {details?.map((e) => (
                         
@@ -43,11 +46,13 @@ function Profile () {
                             <p><span>Email address : </span><span>{e.Email}</span></p>
                             <p><span>School : </span><span>{e.school}</span></p>
                             <p><span>Branch : </span><span>{e.branch}</span></p>
+                            <p><span>Year : </span><span>{e.year}</span></p>
+                            <p><span>DOB : </span><span>{e.dob}</span></p>
+                            <p><span>Gender : </span><span>{e.gender}</span></p>
                         </>
                        
                     ))
                     }
-                    {/* <img src={Ellipse} alt="Ellipse" width="150px" height="150px" /> */}
                     
                 </div>
             </div>

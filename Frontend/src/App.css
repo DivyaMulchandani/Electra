@@ -107,9 +107,10 @@ h1,
 h4 {
   text-align: center;
   color: #6D4C41;
-  font-family: 'Sans-serif';
+  font-family: 'Poppins';
   margin: 0;
   padding: 0;
+  font-size: 40px;
 }
 
 h4 {
@@ -130,8 +131,9 @@ h4 {
   line-height: normal;
   border: none;
   font-family: "Poppins";
-  /* margin-top: 50px; */
+  border-radius: 10px; /* Set the desired radius for curved corners */
 }
+
 
 input {
   color: #FFF;

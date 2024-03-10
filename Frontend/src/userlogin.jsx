@@ -72,7 +72,7 @@ function User_login() {
     <div className="Login">
       <Logo/>
       <div>
-        <h1 className="font">Login</h1>
+        <h1 className="font">LOGIN</h1>
         <div className="account">
           <h4 className="font">Don’t have an account?</h4>
           
@@ -86,11 +86,11 @@ function User_login() {
             type="text"
             id="clgname"
             name="clgname"
-            placeholder="Enter Email"
+            placeholder="Enter College Email"
             className="signup_input"
             onChange={(e) => setEmail(e.target.value)}/><br></br>
           <input
-            placeholder="Enter password"
+            placeholder="Enter Password"
             type="password"
             id="pass"
             name="password"
@@ -98,7 +98,7 @@ function User_login() {
             onChange={(e) => setPassword(e.target.value)}/><br></br>
           {/* <Link to={'/dashboard'} className='link'> */}
           <Button>
-            <button className="pointer"  onClick={(e) => handleSubmit(e)}>Login</button>
+            <button className="pointer button1"  onClick={(e) => handleSubmit(e)}>Login</button>
           </Button>
           {/* </Link> */}
         </form>

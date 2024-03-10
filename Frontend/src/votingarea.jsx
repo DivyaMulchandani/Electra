@@ -62,8 +62,8 @@ function VotingArea() {
 
                                 <img src={profile} />
 
-                                <p>Karishma Sinha</p>
-                                <p>CSE 4th year</p>
+                                <p>Aarav Sharma</p>
+                                <p>ME 4th year</p>
                                 <button onClick={handleDialogOpen}>Vote</button>
                             </div>
 
@@ -71,8 +71,8 @@ function VotingArea() {
 
                                 <img src={profile} />
 
-                                <p>Karishma Sinha</p>
-                                <p>CSE 4th year</p>
+                                <p>Kavya Patel</p>
+                                <p>CSE 3rd year</p>
                                 <button onClick={handleDialogOpen}>Vote</button>
                             </div>
 
@@ -85,8 +85,8 @@ function VotingArea() {
                             <div class="box">
                                 <img src={profile} />
 
-                                <p>Karishma Sinha</p>
-                                <p>CSE 4th year</p>
+                                <p>Advait Singh</p>
+                                <p>CE 3rd year</p>
                                 <button onClick={handleDialogOpen}>Vote</button>
 
 
@@ -96,7 +96,7 @@ function VotingArea() {
 
                                 <img src={profile} />
 
-                                <p>Karishma Sinha</p>
+                                <p>Ananya Desai</p>
                                 <p>CSE 4th year</p>
                                 <button onClick={handleDialogOpen}>Vote</button>
                             </div>
@@ -105,8 +105,8 @@ function VotingArea() {
 
                                 <img src={profile} />
 
-                                <p>Karishma Sinha</p>
-                                <p>CSE 4th year</p>
+                                <p>Arjun Verma</p>
+                                <p>BCA 3rd year</p>
                                 <button onClick={handleDialogOpen}>Vote</button>
                             </div>
 
