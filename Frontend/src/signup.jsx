@@ -3,7 +3,10 @@ import './App.css'
 import Logo from "./logo";
 import axios from "axios"
 
+import { useNavigate } from "react-router-dom";
+
 import { Link } from 'react-router-dom';
+
 function Signup() {
 
 
@@ -26,11 +29,13 @@ function Signup() {
                 alert("Passwords do not match")
             }else{
             axios.post("http://localhost:2111/api/product", userDetails)
-            .then((res) => {console.log(res.data)})
+            .then((res) => {console.log(res.data) 
+                }
+            )
             .catch(err=>console.log(err));
         }
         }else {
-            alert("Please enter your college mailid")
+            alert("Please enter your college email id")
         }   
     }
 
@@ -54,7 +59,7 @@ function Signup() {
                  onChange={(e) => setPassword(e.target.value)}/><br></br>
                 <input placeholder="Enter Confirm Password"  type="password" id="cpass" name="confirmpassword" className='signup_input'
                                  onChange={(e) => setconPassword(e.target.value)}/><br></br>
-                <Link to={'/userlogin'} className='link'><button onClick={() => postUser()}>Sign up</button></Link>
+                <Link to={'/myprofile'} className='link'><button onClick={() => postUser()}>Sign up</button></Link>
             </form>
         </div>
     </div>
