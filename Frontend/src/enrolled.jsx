@@ -25,6 +25,7 @@ import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 
+import { Link } from "react-router-dom";
 import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/400-italic.css";
@@ -62,6 +63,8 @@ function Enrolled() {
                             </ListItem>
                             {/* Data rows */}
                             {enrolledCandidates.map(candidate => (
+
+                                <Link id="enrolllink" to={'/alldetails'} className='link'>
                                 <ListItem key={candidate.id}
                                     secondaryAction={
                                         <IconButton edge="end" aria-label="ok" className="iconButton">
@@ -69,13 +72,16 @@ function Enrolled() {
                                         </IconButton>
                                     }
                                 >
+                                
                                     <ListItemText
                                         primary={candidate.id}
                                     />
+                                     
 
                                     <ListItemText
                                         primary={candidate.name}
                                     />
+                                    
 
                                     <ListItemText
                                         primary={candidate.position}
@@ -85,7 +91,10 @@ function Enrolled() {
                                         primary={candidate.branch}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
+                                    
+                                    
                                 </ListItem>
+                                </Link>
                             ))}
                         </List>
                     </Grid>

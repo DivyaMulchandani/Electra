@@ -15,6 +15,7 @@ import { Details } from "../details";
 import { Phase } from "../changephase";
 import Signup from "../signup";
 import MyProfile from "../myprofile";
+import {Alldetails} from "../alldetails"
 function RouteToPage()
 {
     return(
@@ -34,6 +35,7 @@ function RouteToPage()
             <Route exact path='/changephase' element={<Phase/>}></Route>
             <Route exact path='/signup' element={<Signup/>}></Route>
             <Route exact path='/myprofile' element={<MyProfile/>}></Route>
+            <Route exact path='/alldetails' element={<Alldetails/>}></Route>
 
         </Routes>
     )
