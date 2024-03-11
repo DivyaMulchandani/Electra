@@ -51,11 +51,11 @@ function Profile () {
                         <>
                             <p>Name : {e.Name}</p>
                             <p><span>Email address : </span><span>{e.Email}</span></p>
-                            <p><span>School : </span><span>{e.school}</span></p>
-                            <p><span>Branch : </span><span>{e.branch}</span></p>
-                            <p><span>Year : </span><span>{e.year}</span></p>
-                            <p><span>DOB : </span><span>{e.dob}</span></p>
-                            <p><span>Gender : </span><span>{e.gender}</span></p>
+                            <p><span>School : </span><span>{e.School}</span></p>
+                            <p><span>Branch : </span><span>{e.Branch}</span></p>
+                            <p><span>Year : </span><span>{e.Year}</span></p>
+                            <p><span>DOB : </span><span>{e.DOB}</span></p>
+                            <p><span>Gender : </span><span>{e.Gender}</span></p>
                         </>
                        
                     ))

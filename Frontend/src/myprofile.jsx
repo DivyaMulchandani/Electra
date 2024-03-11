@@ -5,10 +5,8 @@ import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
 
-
-
 import axios from "axios"
-import React, { useState } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
