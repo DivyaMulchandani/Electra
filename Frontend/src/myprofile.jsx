@@ -63,12 +63,6 @@ function MyProfile() {
       }
       )
       .catch(err => console.log(err));
-
-
-
-
-
-
   }
 
 
@@ -86,6 +80,8 @@ function MyProfile() {
             name="school"
             placeholder="Enter School Name"
             className="profile_input"
+            onChange={(e) => setSchoolName(e.target.value)} 
+
           />
           <br />
           <input
@@ -94,6 +90,8 @@ function MyProfile() {
             name="branch"
             placeholder="Enter Branch Name"
             className="profile_input"
+            onChange={(e) => setBranchName(e.target.value)} 
+
           />
           <br />
           <input
@@ -102,6 +100,8 @@ function MyProfile() {
             id="year"
             name="year"
             className="profile_input"
+            onChange={(e) => setYear(e.target.value)} 
+
           />
           <br />
           <input
@@ -110,6 +110,8 @@ function MyProfile() {
             id="dob"
             name="dob"
             className="profile_input"
+            onChange={(e) => setDOB(e.target.value)} 
+
           />
           <br />
 
@@ -120,7 +122,6 @@ function MyProfile() {
             name="gen"
             onChange={(e) => setGender(e.target.value)}
             className="profile_input"
-
           />
           <br />
 

@@ -9,7 +9,8 @@ const {SendOTPVerificationEmail} = require("../controller/UserOTPController");
 const UserOTPVerification = require("../models/UserOPT");
 
 const {getIndividualProduct,postProduct,checkLoginInfo,patchCand}=require("../controller/productController");
- const {patchCand}=require("../controller/productController");
+const {patchCand}=require("../controller/productController");
+const {patchCand}=require("../controller/productController");
 
 
 router.post("/product",postProduct);
