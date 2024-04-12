@@ -30,7 +30,7 @@ const SendOTPVerificationEmail = async ({ email }, res) => {
         const hashedOTP = await bcrypt.hash(otp, saltRounds);
 
         const newOTPVerification = new UserOTPVerification({
-            // userID: ,
+            mail:email,
             otp: hashedOTP,
             createdAt: Date.now(),
             expiresAt: new Date(Date.now() + 60 * 1000), // Expire after 1 minute
@@ -52,8 +52,8 @@ const SendOTPVerificationEmail = async ({ email }, res) => {
             status: "Pending",
             message: "Verification OTP email sent",
             data: {
-                // userID: ,
                 email,
+                hashedOTP,
             }
         });
     } catch (error) {

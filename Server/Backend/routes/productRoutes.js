@@ -3,15 +3,11 @@ const router=express.Router();
 const bcrypt = require("bcrypt"); // Import bcrypt for OTP verification
 
 
-// const {getIndividualProduct,postProduct,checkLoginInfo}=require("../controller/productController");
-// const UserOTPVerification = require("./../models/UserOPT");
 const {SendOTPVerificationEmail} = require("../controller/UserOTPController");
 const UserOTPVerification = require("../models/UserOPT");
 
-const {getIndividualProduct,postProduct,checkLoginInfo,patchCand}=require("../controller/productController");
+const {getIndividualProduct,postProduct,checkLoginInfo}=require("../controller/productController");
 const {patchCand}=require("../controller/productController");
-const {patchCand}=require("../controller/productController");
-
 
 router.post("/product",postProduct);
 router.get("/product",getIndividualProduct);
@@ -26,13 +22,13 @@ router.post('/product/otpverify/:mail', function(req, res) {
 });
 
 
-router.post("/verifyOTP",async(req,res)=>{
+router.post("/verifyOTP/:mail",async(req,res)=>{
   try{
-    let { userId , otp} = req.body;
-    if(!userId || !otp){
+    let { mail , otp} = req.body;
+    if(!mail || !otp){
       throw Error ("Empty otp details are not allowed");
     }else{
-      const UserOTPVerificationRecords = await UserOTPVerification.find({_id : userId});
+      const UserOTPVerificationRecords = await UserOTPVerification.find({_id : mail});
       if (UserOTPVerificationRecords.length <= 0) {
         throw new Error("account record doesnot exist or has been verified already")
             
@@ -40,7 +36,7 @@ router.post("/verifyOTP",async(req,res)=>{
         const { expiresAt } = UserOTPVerificationRecords[0];
         const hashedOTP = UserOTPVerificationRecords[0].otp;
         if(expiresAt < Date.now()){
-          await  UserOTPVerification.deleteMany({userId});
+          await  UserOTPVerification.deleteMany({mail});
           throw new Error("Code has exprired.")
       }else{
         const validOTP = await bcrypt.compare(otp,hashedOTP);
@@ -49,8 +45,8 @@ router.post("/verifyOTP",async(req,res)=>{
           throw new Error('Invalid OTP');
         }else {
           //success
-          await UserOTPVerification.updateOne({_id:userId},{verified:true});
-          await UserOTPVerification.deleteMany({userId});
+          await UserOTPVerification.updateOne({_id:mail},{verified:true});
+          await UserOTPVerification.deleteMany({mail});
           res.json({
             status:"Verified",
             message : 'You have been successfully verified your'

@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const UserOTPSchema = new mongoose.Schema(
 
     {
+        
         "mail": {
            type :String
         } ,

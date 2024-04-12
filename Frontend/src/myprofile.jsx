@@ -28,11 +28,6 @@ function MyProfile() {
     }
   }, [])
  
-
-  
-  
-
-
   const [SchoolName, setSchoolName] = useState('')
   const [BranchName, setBranchName] = useState('')
   const [Year, setYear] = useState('')

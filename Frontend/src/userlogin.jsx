@@ -35,21 +35,24 @@ function User_login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
+  var userId='';
+
   
 
+
   const changePath = () => {
-    // axios
-    //   .post("/verifyOTP", { userId, otp })
-    //   .then((response) => {
-    //     // Handle successful response
-    //     console.log("Verification successful:", response.data);
+    axios
+      .post("/verifyOTP/", { email, otp })
+      .then((response) => { 
+        // Handle successful response
+        console.log("Verification successful:", response.data);
         let path = "/dashboard";
         navigate(path);
-      // })
-      // .catch((error) => {
-      //   // Handle error
-      //   console.error("Verification failed:", error.response.data);
-      // });
+      })
+      .catch((error) => {
+        // Handle error
+        console.error("Verification failed:", error.response.data);
+      });
   };
 
   function handleSubmit(e) {
@@ -65,21 +68,30 @@ function User_login() {
         } else if (email === "" || password === "") {
           alert("please enter details");
         } else {
+
+          axios
+            .post(`http://localhost:2111/api/product/otpverify/${email}`)
+            .then((response) => {
+              // Handle successful response
+              console.log("Email sent successfully");
+              console.log(response.data)
+            })
+            .catch((error) => {
+              // Handle error
+              console.error("Failed to send email:", error);
+            });
+
+          
+
+
           handleDialogOpen();
+
+
         }
       })
       .catch((error) => console.error(error));
 
-    axios
-      .post(`http://localhost:2111/api/product/otpverify/${email}`)
-      .then((response) => {
-        // Handle successful response
-        console.log("Email sent successfully");
-      })
-      .catch((error) => {
-        // Handle error
-        console.error("Failed to send email:", error);
-      });
+
   }
 
   return (

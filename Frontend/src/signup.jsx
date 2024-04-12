@@ -44,8 +44,9 @@ function Signup() {
 
                 else {
                     axios.post("http://localhost:2111/api/product", userDetails)
-                        .then((res) => {
-                            console.log(res.data)
+                        .then((response) => {
+                            localStorage.setItem("user", JSON.stringify(response.data));
+                            console.log(response.data)
                              let path = '/myprofile';
                              navigate(path);
                         }
