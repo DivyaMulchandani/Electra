@@ -13,6 +13,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState, useEffect } from "react";
+import bcrypt from 'bcryptjs-react';
+var hashedOTP1 = '';
 function User_login() {
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -35,25 +37,12 @@ function User_login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
-  var userId='';
-
-  
+  var userId = '';
 
 
-  const changePath = () => {
-    axios
-      .post("/verifyOTP/", { email, otp })
-      .then((response) => { 
-        // Handle successful response
-        console.log("Verification successful:", response.data);
-        let path = "/dashboard";
-        navigate(path);
-      })
-      .catch((error) => {
-        // Handle error
-        console.error("Verification failed:", error.response.data);
-      });
-  };
+
+
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -74,18 +63,16 @@ function User_login() {
             .then((response) => {
               // Handle successful response
               console.log("Email sent successfully");
-              console.log(response.data)
+
+              hashedOTP1 = response.data.data.hashedOTP
+              
+              handleDialogOpen();
+              // return hashedOTP1;
             })
             .catch((error) => {
               // Handle error
               console.error("Failed to send email:", error);
             });
-
-          
-
-
-          handleDialogOpen();
-
 
         }
       })
@@ -93,6 +80,43 @@ function User_login() {
 
 
   }
+
+
+  const changePath = () => {
+
+    try{
+      bcrypt.hash(otp, 10, function(err, hash) {
+        if (err) {
+            console.error('Error hashing OTP:', err);
+            return;
+        }
+    
+        bcrypt.compare(otp, hashedOTP1, function(err, result) {
+            if (err) {
+                console.error('Error comparing OTP hashes:', err);
+                return;
+            }
+    
+            
+    
+            if (result) {
+                let path = '/dashboard';
+                navigate(path);
+            } else {
+                alert("Incorrect OTP. Please enter correct otp");
+            }
+        });
+    });
+    
+
+
+    }
+    catch (error) {
+      // Handle error
+      console.error("Verification failed:", error.response.data);
+    };
+  };
+
 
   return (
     <div className="Login">

@@ -60,6 +60,7 @@ const candidateSchema = new mongoose.Schema(
             type : String,
             required : false
         }
+        
     }
 )
 
