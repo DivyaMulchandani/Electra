@@ -9,6 +9,8 @@ import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+
+import { useState, useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import FormGroup from '@mui/material/FormGroup';
@@ -22,6 +24,7 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 function Details() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
+    var num = 1;
 
     // Sample data for the enrolled candidates
     const enrolledCandidates = [
@@ -32,9 +35,25 @@ function Details() {
         { id: 5, name: 'Yash Jaiswal', branch: 'Civil 2nd year' },
         { id: 6, name: 'Rudra Amin', branch: 'Mech 4th year' },
         { id: 7, name: 'Satyam Shah', branch: 'Electrical 4th year' },
-        
-    
+
+
     ];
+
+
+    const [data, setData] = useState([])
+    const fetchInfo = () => {
+        return fetch("http://localhost:2111/api/product")
+            .then((res) => res.json())
+            .then((d) => {
+                setData(d)
+                console.log(d)
+            })
+    }
+
+    useEffect(() => {
+        fetchInfo();
+    }, [])
+
 
     return (
         <>
@@ -48,21 +67,18 @@ function Details() {
                     <Grid item xs={12} md={6}>
                         <List dense={dense}>
                             {/* Titles for each column */}
-                            
+
                             <ListItem className="titleList">
                                 <ListItemText primary="Sr." />
                                 <ListItemText primary="Name" />
                                 <ListItemText primary="Branch" />
                             </ListItem>
                             {/* Data rows */}
-                            {enrolledCandidates.map(candidate => (
-                                <ListItem key={candidate.id}
-                                    
-                                >
-                                    <ListItemText primary={candidate.id}/>
-                                    <ListItemText primary={candidate.name}/>
-                                    <ListItemText primary={candidate.branch}/>
-                                        
+                            {data.map((candidate, index) => (
+                                <ListItem key={candidate.id}>
+                                    <ListItemText primary={num + index} />
+                                    <ListItemText primary={candidate.Name} />
+                                    <ListItemText primary={candidate.Branch +" "+ candidate.Year} />
                                 </ListItem>
                             ))}
                         </List>

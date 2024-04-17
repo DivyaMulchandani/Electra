@@ -1,5 +1,5 @@
 const Candidates=require('../models/products');
-const getIndividualProduct = async (req, res) => {
+const getAllProduct = async (req, res) => {
     try {
         const product = await Candidates.find({})
         res.status(200).json(product)
@@ -59,4 +59,4 @@ const patchCand = async (req, res) => {
 }
 
 
-module.exports={getIndividualProduct,postProduct,checkLoginInfo,patchCand};
+module.exports={getAllProduct,postProduct,checkLoginInfo,patchCand};
