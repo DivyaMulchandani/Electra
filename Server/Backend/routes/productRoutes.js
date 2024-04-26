@@ -8,11 +8,13 @@ const UserOTPVerification = require("../models/UserOPT");
 
 const {getIndividualProduct,postProduct,checkLoginInfo}=require("../controller/productController");
 const {patchCand}=require("../controller/productController");
+const {ApplicantInfoByEmail,PostInfoApplicant} = require("../controller/ApplicantController");
 
 router.post("/product",postProduct);
 router.get("/product",getIndividualProduct);
 router.get("/product/:email",checkLoginInfo);
-
+router.get("/applicant/:email",ApplicantInfoByEmail);
+router.post("/applicant",PostInfoApplicant);
 router.patch("/:email",patchCand);
 
 router.post('/product/otpverify/:mail', function(req, res) {
