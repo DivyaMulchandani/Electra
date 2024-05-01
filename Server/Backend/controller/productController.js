@@ -10,7 +10,7 @@ const getAllProduct = async (req, res) => {
     }
 }
 
-//finding id
+
 const checkLoginInfo = async (req, res) => {
     try {
         const mail = req.params.email
