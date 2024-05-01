@@ -74,3 +74,5 @@ npm i mongodb
 npm i express
 npm i cors
 npm i dotenv
+
+bcryptjs-react

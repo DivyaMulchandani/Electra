@@ -1,4 +1,5 @@
-const Applicant=require('../models/applicant');
+
+const Applicant=require('../models/Applicant');
 //To get data from Applicant table
 const ApplicantInfoByEmail = async (req, res) => {
     try {
