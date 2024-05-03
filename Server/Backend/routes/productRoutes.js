@@ -7,7 +7,6 @@ const {ApplicantInfoByEmail,PostInfoApplicant} = require("../controller/Applican
 
 const {getAllProduct,postProduct,checkLoginInfo}=require("../controller/productController");
 const {patchCand}=require("../controller/productController");
-const {ApplicantInfoByEmail,PostInfoApplicant} = require("../controller/ApplicantController");
 
 router.post("/product",postProduct);
 router.get("/product",getAllProduct);

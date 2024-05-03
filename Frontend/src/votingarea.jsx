@@ -1,8 +1,9 @@
-import React from "react";
-import "./votingarea.css"
+import React, { useState, useEffect } from "react";
+import SimpleStorage from "./contracts/SimpleStorage.json";
+import Web3 from "web3";
+import "./votingarea.css";
 import ResponsiveDrawer from "./navbar";
-import profile from "./profile.svg"
-import { useState } from "react";
+import profile from "./profile.svg";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -11,188 +12,346 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-
-import "@fontsource/poppins"; // Defaults to weight 400
-import "@fontsource/poppins/400.css"; // Specify weight
-import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-
 function VotingArea() {
+  const [web3, setWeb3] = useState(null);
+  const [contract, setContract] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [storedValue, setStoredValue] = useState(0);
 
-    const [openDialog, setOpenDialog] = useState(false);
+  const [voteCountPresident1, setVoteCountPresident1] = useState(0);
+  const [voteCountPresident2, setVoteCountPresident2] = useState(0);
+  const [voteCountPresident3, setVoteCountPresident3] = useState(0);
+  const [voteCountVicePresident1, setVoteCountVicePresident1] = useState(0);
+  const [voteCountVicePresident2, setVoteCountVicePresident2] = useState(0);
+  const [voteCountVicePresident3, setVoteCountVicePresident3] = useState(0);
 
-    const handleDialogOpen = () => {
-        setOpenDialog(true);
-    };
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [isViceButtonClicked, setIsViceButtonClicked] = useState(false);
 
-    const handleDialogClose = () => {
-        setOpenDialog(false);
-    };
+  useEffect(() => {
+    console.log(isButtonClicked);
+  }, [isButtonClicked]);
 
-    const handleDialogSubmit = (event) => {
-        event.preventDefault();
-        // Handle form submission logic here
-        handleDialogClose();
-    };
-    return (
+  const id = 0;
+  const [openDialog, setOpenDialog] = useState(false);
+  const [state, setState] = useState({
+    web3: null,
+    contract: null,
+  });
+  const [voteCount, setVoteCount] = useState(0);
 
-        <>
-            <div className="main"  >
-                <div className="left">
-                    <ResponsiveDrawer />
-                </div>
-                <div className="right">
-                    <h1>Voting area</h1>
-                    <div className="line"></div>
+  useEffect(() => {
+    const provider = new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545");
 
-                    <ul>
-                        <h4><li type="1">President</li></h4>
+    async function setupContract() {
+      const web3 = new Web3(provider);
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = SimpleStorage.networks[networkId];
+      const contract = new web3.eth.Contract(
+        SimpleStorage.abi,
+        deployedNetwork.address
+      );
 
-                        <div className="hell">
-                            <div class="box">
-                                <img src={profile} />
+      const instance = new web3.eth.Contract(
+        SimpleStorage.abi,
+        deployedNetwork && deployedNetwork.address
+      );
+      setContract(instance);
 
-                                <p>Karishma Sinha</p>
-                                <p>CSE 4th year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0]);
 
+      setState({ web3: web3, contract: contract });
 
-                            </div>
+      const response1 = await instance.methods.getter(1).call();
+      setVoteCountPresident1(response1);
 
-                            <div class="box">
+      const response2 = await instance.methods.getter(2).call();
+      setVoteCountPresident2(response2);
 
-                                <img src={profile} />
+      const response3 = await instance.methods.getter(3).call();
+      setVoteCountPresident3(response3);
 
-                                <p>Aarav Sharma</p>
-                                <p>ME 4th year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
-                            </div>
+      const response4 = await instance.methods.getter(4).call();
+      setVoteCountVicePresident1(response4);
 
-                            <div class="box">
+      const response5 = await instance.methods.getter(5).call();
+      setVoteCountVicePresident2(response5);
 
-                                <img src={profile} />
+      const response6 = await instance.methods.getter(6).call();
+      setVoteCountVicePresident3(response6);
+    }
 
-                                <p>Kavya Patel</p>
-                                <p>CSE 3rd year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
-                            </div>
+    setupContract();
+  }, []);
 
+  async function handleVoteClick(id) {
+    const { contract } = state;
+    console.log(id);
+    try {
+      // Increment the vote count based on the position
+      let updatedCount;
+      switch (id) {
+        case 1: // President
+          if (!isButtonClicked) {
+            await contract.methods.setter(voteCountPresident1, 1).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
-                        </div>
+            const updatedValue = await contract.methods.getter(1).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountPresident1(val);
+            console.log(val);
 
-                        <h4><li type="1">Vice President</li></h4>
+            setIsButtonClicked(true);
+          }
+          break;
+        case 2:
+          console.log(isButtonClicked);
+          if (!isButtonClicked) {
+            await contract.methods.setter(voteCountPresident2, 2).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
-                        <div className="hell">
-                            <div class="box">
-                                <img src={profile} />
+            const updatedValue = await contract.methods.getter(2).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountPresident2(val);
+            console.log(val);
 
-                                <p>Advait Singh</p>
-                                <p>CE 3rd year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
+            setIsButtonClicked(true);
+          }
+          break;
+        case 3:
+          if (!isButtonClicked) {
+            await contract.methods.setter(voteCountPresident3, 3).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
+            const updatedValue = await contract.methods.getter(3).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountPresident3(val);
+            console.log(val);
 
-                            </div>
+            setIsButtonClicked(true);
+          }
+          break;
+        case 4:
+          if (!isViceButtonClicked) {
+            await contract.methods.setter(voteCountVicePresident1, 4).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
-                            <div class="box">
+            const updatedValue = await contract.methods.getter(4).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountVicePresident1(val);
+            console.log(val);
 
-                                <img src={profile} />
+            setIsViceButtonClicked(true);
+          }
+          break;
+        case 5:
+          if (!isViceButtonClicked) {
+            await contract.methods.setter(voteCountVicePresident2, 5).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
-                                <p>Ananya Desai</p>
-                                <p>CSE 4th year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
-                            </div>
+            const updatedValue = await contract.methods.getter(5).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountVicePresident2(val);
+            console.log(val);
 
-                            <div class="box">
+            setIsViceButtonClicked(true);
+          }
+          break;
+        case 6:
+          if (!isViceButtonClicked) {
+            await contract.methods.setter(voteCountVicePresident3, 6).send({
+              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+            });
 
-                                <img src={profile} />
+            const updatedValue = await contract.methods.getter(6).call();
+            const val = Number(updatedValue);
+            console.log("hell");
+            setVoteCountVicePresident3(val);
+            console.log(val);
 
-                                <p>Arjun Verma</p>
-                                <p>BCA 3rd year</p>
-                                <button onClick={handleDialogOpen}>Vote</button>
-                            </div>
+            setIsViceButtonClicked(true);
+          }
+          break;
 
+        default:
+          break;
+      }
+      console.log("Transaction successful");
+      console.log("Updated count:", updatedCount);
+      // Open the dialog after voting
+      setOpenDialog(true);
+    } catch (error) {
+      console.error("Error while voting:", error);
+    }
+  }
+  console.log(isButtonClicked);
 
-                        </div>
+  const handleDialogOpen = () => {
+    setOpenDialog(true);
+  };
 
+  const handleDialogClose = () => {
+    setOpenDialog(false);
+  };
 
+  const handleDialogSubmit = async (event) => {
+    event.preventDefault();
+    // Handle form submission logic here
+    handleDialogClose();
+  };
 
-                    </ul>
+  return (
+    <>
+      <div className="main">
+        <div className="left">
+          <ResponsiveDrawer />
+        </div>
+        <div className="right">
+          <h1>Voting area</h1>
+          <div className="line"></div>
 
+          <ul>
+            <h4>
+              <li type="1">President</li>
+            </h4>
 
-                    <Dialog
+            <div className="hell">
+              <div className="box">
+                <img src={profile} alt="Profile" />
+                <p>Karishma Sinha</p>
+                <p>CSE 4th year</p>
+                <p>{voteCountPresident1}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(1);
+                  }}
+                  disabled={isButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+
+              <div className="box">
+                <img src={profile} />
+
+                <p>Aarav Sharma</p>
+                <p>ME 4th year</p>
+                <p>{voteCountPresident2}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(2);
+                  }}
+                  disabled={isButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+
+              <div className="box">
+                <img src={profile} />
+
+                <p>Kavya Patel</p>
+                <p>CSE 3rd year</p>
+                <p>{voteCountPresident3}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(3);
+                  }}
+                  disabled={isButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+            </div>
+
+            <h4>
+              <li type="1">Vice President</li>
+            </h4>
+
+            <div className="hell">
+              <div class="box">
+                <img src={profile} />
+
+                <p>Advait Singh</p>
+                <p>CE 3rd year</p>
+                <p>{voteCountVicePresident1}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(4);
+                  }}
+                  disabled={isViceButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+
+              <div className="box">
+                <img src={profile} />
+
+                <p>Ananya Desai</p>
+                <p>CSE 4th year</p>
+                <p>{voteCountVicePresident2}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(5);
+                  }}
+                  disabled={isViceButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+
+              <div className="box">
+                <img src={profile} />
+
+                <p>Arjun Verma</p>
+                <p>BCA 3rd year</p>
+                <p>{voteCountVicePresident3}</p>
+                <button
+                  onClick={() => {
+                    handleVoteClick(6);
+                  }}
+                  disabled={isViceButtonClicked}
+                >
+                  Vote
+                </button>
+              </div>
+            </div>
+          </ul>
+
+          <Dialog
             open={openDialog}
-            onClose={handleDialogClose}
-            PaperProps={{
-              style: {
-                backgroundColor: "#e5ded9", // Background color for the entire dialog
-              },
-            }}
+            onClose={() => setOpenDialog(false)}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
           >
-            <DialogTitle
-              style={{
-                textAlign: "center",
-                color: "#4e3b32",
-                fontWeight: "bold",
-              }}
-            >
-              Authentication
+            <DialogTitle id="alert-dialog-title">
+              {"Thanks for voting!"}
             </DialogTitle>
             <DialogContent>
-              <DialogContentText style={{ color: "#4e3b32" }}>
-                You will have to answer the below questions before you can cast
-                your vote.
+              <DialogContentText id="alert-dialog-description">
+                Your vote has been recorded successfully.
               </DialogContentText>
-              <TextField
-                autoFocus
-                required
-                margin="dense"
-                id="mother"
-                name="mother"
-                label="What is your mother's date of birth?"
-                type="date"
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                required
-                margin="dense"
-                id="city"
-                name="city"
-                label="Which city were you born in?"
-                type="text"
-                fullWidth
-                variant="standard"
-              />
-              <TextField
-                required
-                margin="dense"
-                id="first_school"
-                name="first_school"
-                label="What is the name of your first school?"
-                type="number"
-                fullWidth
-                variant="standard"
-              />
             </DialogContent>
-            <DialogActions style={{ justifyContent: "center" }}>
-              <Button
-                style={{
-                  color: "#4e3b32",
-                  fontWeight: "bolder",
-                  fontSize: "20px",
-                }}
-                type="submit"
-              >
-                Next
-              </Button>
+            <DialogActions>
+              <Button onClick={() => setOpenDialog(false)}>OK</Button>
             </DialogActions>
           </Dialog>
-
-
-
-                </div>
-            </div>
-        </>
-    )
+        </div>
+      </div>
+    </>
+  );
 }
 
-export { VotingArea }
+export { VotingArea };
