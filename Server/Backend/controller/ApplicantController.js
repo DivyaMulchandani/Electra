@@ -25,6 +25,7 @@ const getallApp = async (req, res) => {
 }
 
 
+
 const PostInfoApplicant = async (req, res) => {
     const {} = req.body
     try{
