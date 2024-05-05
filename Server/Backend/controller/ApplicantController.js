@@ -1,11 +1,22 @@
 
 const Applicant=require('../models/Applicant');
 //To get data from Applicant table
-const ApplicantInfoByEmail = async (req, res) => {
+const ApplicantInfoByName = async (req, res) => {
     try {
-        const mail = req.params.email
-        const product = await Applicant.find({Email : mail}).lean().exec()
+        const name = req.params.name
+        const product = await Applicant.find({Name : name}).lean().exec()
         res.status(201).json(product)
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({message: "Server Error"})
+    }
+}
+
+const getallApp = async (req, res) => {
+    try {
+        const product = await Applicant.find({})
+        res.status(200).json(product)
     }
     catch (error) {
         console.error(error);
@@ -31,4 +42,4 @@ const PostInfoApplicant = async (req, res) => {
     }
 }
 
-module.exports={ApplicantInfoByEmail,PostInfoApplicant};
+module.exports={ApplicantInfoByName,PostInfoApplicant,getallApp};

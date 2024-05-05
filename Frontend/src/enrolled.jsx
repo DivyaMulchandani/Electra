@@ -29,10 +29,43 @@ import { Link } from "react-router-dom";
 import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/400-italic.css";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 function Enrolled() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
+var num=1;
+var name = "";
+    const [details, setDetails] = useState([]);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setEmail(user.email);
+    }
+  }, []);
+
+
+  const fetchInfo = () => {
+    return fetch("http://localhost:2111/api/applicant")
+      .then((res) => res.json())
+      .then((d) => {
+        setDetails(d);
+        console.log(d);
+      })
+      .catch(error => console.error("Error fetching data:", error));
+  };
+
+  
+  useEffect(() => {
+    fetchInfo();
+}, [])
 
     // Sample data for the enrolled candidates
     const enrolledCandidates = [
@@ -62,9 +95,9 @@ function Enrolled() {
                                 <ListItemText primary="Branch" />
                             </ListItem>
                             {/* Data rows */}
-                            {enrolledCandidates.map(candidate => (
+                            {details.map((candidate,index) => (
 
-                                <Link id="enrolllink" to={'/alldetails'} className='link'>
+                                <Link id="enrolllink" to={`/alldetails`} className='link' onClick={()=>{name=candidate.Name;console.log(name);localStorage.setItem("name",JSON.stringify(candidate.Name))}}>
                                 <ListItem key={candidate.id}
                                     secondaryAction={
                                         <IconButton edge="end" aria-label="ok" className="iconButton">
@@ -74,21 +107,21 @@ function Enrolled() {
                                 >
                                 
                                     <ListItemText
-                                        primary={candidate.id}
+                                        primary={num+index}
                                     />
                                      
 
                                     <ListItemText
-                                        primary={candidate.name}
+                                        primary={candidate.Name}
                                     />
                                     
 
                                     <ListItemText
-                                        primary={candidate.position}
+                                        primary={candidate.Position_of_Interest}
                                     />
 
                                     <ListItemText
-                                        primary={candidate.branch}
+                                        primary={candidate.Branch}
                                         secondary={secondary ? 'Secondary text' : null}
                                     />
                                     
