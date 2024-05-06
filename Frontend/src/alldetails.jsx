@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Typography from '@mui/material/Typography';
 import ResponsiveDrawer from './navbar';
 import "./alldetails.css";
@@ -18,10 +18,46 @@ import Grid from '@mui/material/Grid';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
+import axios from "axios";
+import { useState } from "react";
 
 function Alldetails() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
+    const [email, setEmail] = useState("");
+    const [details, setDetails] = useState([]);
+    const fetchInfo = () => {
+      console.log(email)
+      axios.get(`http://localhost:2111/api/applicant/d/${email}`)
+      .then((res)=>{
+        console.log(res.data[0]) 
+        const data=res.data;
+        setDetails(data);
+       
+        
+
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+      
+
+
+
+    };
+
+
+    useEffect (()=>{
+      const StoredUser=localStorage.getItem("email");
+      const user = JSON.parse(StoredUser);
+      setEmail(user);
+      fetchInfo();
+
+    },[email]);
+
+    
+  
+
+
+
 
     // Sample data for the enrolled candidates
     const studentDetails = {
@@ -45,43 +81,50 @@ function Alldetails() {
                 <div className="left">
                     <ResponsiveDrawer />
                 </div>
+
+                {details?.map((e) => (
+
+                  <>
                 <div className="right">
-                <h1>KARISHMA SINHA</h1>
+                  
+                <h1>{e.Name}</h1>
                     <div className="line"></div>
                     <List>
                     <ListItem>
-                            <ListItemText primary="School name" secondary={studentDetails.schoolName} />
+                            <ListItemText primary="School name" secondary={e.School} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Branch name" secondary={studentDetails.branchName} />
+                            <ListItemText primary="Branch name" secondary={e.Branch} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Year" secondary={studentDetails.year} />
+                            <ListItemText primary="Year" secondary={e.Year} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Date of birth" secondary={studentDetails.dateOfBirth} />
+                            <ListItemText primary="Date of birth" secondary={e.DOB} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Gender" secondary={studentDetails.gender} />
+                            <ListItemText primary="Gender" secondary={e.Gender} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Position of Interest" secondary={studentDetails.positionOfInterest} />
+                            <ListItemText primary="Position of Interest" secondary={e.Position_of_Interest} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Why do you want to run for this post?" secondary={studentDetails.reasonForRunning} />
+                            <ListItemText primary="Why do you want to run for this post?" secondary={e.Why_want} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="What specific goal do you hope to achieve if elected?" secondary={studentDetails.achieveGoal} />
+                            <ListItemText primary="What specific goal do you hope to achieve if elected?" secondary={e.specific_goal} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Mention any previous experience" secondary={studentDetails.experience} />
+                            <ListItemText primary="Mention any previous experience" secondary={e.experience} />
                         </ListItem>
                         <ListItem>
-                            <ListItemText primary="Mention any other position of interest(if any)" secondary={studentDetails.option} />
+                            <ListItemText primary="Mention any other position of interest(if any)" secondary={e.other_position} />
                         </ListItem>
                     </List>
                 </div>
-            </div>
+          </>
+          ))}
+          </div>
         </>
     )
 }

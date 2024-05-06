@@ -3,7 +3,7 @@ const router=express.Router();
 const {SendOTPVerificationEmail} = require("../controller/UserOTPController");
 const UserOTPVerification = require("../models/UserOPT");
 
-const {ApplicantInfoByEmail,PostInfoApplicant} = require("../controller/ApplicantController");
+const {ApplicantInfoByName,PostInfoApplicant,getallApp} = require("../controller/ApplicantController");
 
 const {getAllProduct,postProduct,checkLoginInfo}=require("../controller/productController");
 const {patchCand}=require("../controller/productController");
@@ -11,11 +11,10 @@ const {patchCand}=require("../controller/productController");
 router.post("/product",postProduct);
 router.get("/product",getAllProduct);
 router.get("/product/:email",checkLoginInfo);
-router.get("/applicant/:email",ApplicantInfoByEmail);
+router.get("/applicant/d/:email",ApplicantInfoByName);
 router.post("/applicant",PostInfoApplicant);
 router.patch("/:email",patchCand);
-router.get("/applicant/:email",ApplicantInfoByEmail);
-router.post("/applicant",PostInfoApplicant);
+router.get("/applicant",getallApp);
 
 router.post('/product/otpverify/:mail', function(req, res) {
   const email = req.params.mail;
