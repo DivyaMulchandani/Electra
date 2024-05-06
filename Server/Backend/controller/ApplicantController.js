@@ -3,8 +3,8 @@ const Applicant=require('../models/Applicant');
 //To get data from Applicant table
 const ApplicantInfoByName = async (req, res) => {
     try {
-        const name = req.params.name
-        const product = await Applicant.find({Name : name}).lean().exec()
+        const email = req.params.email
+        const product = await Applicant.find({Email : email}).lean().exec()
         res.status(201).json(product)
     }
     catch (error) {

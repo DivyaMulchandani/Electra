@@ -57,7 +57,6 @@ var name = "";
       .then((res) => res.json())
       .then((d) => {
         setDetails(d);
-        console.log(d);
       })
       .catch(error => console.error("Error fetching data:", error));
   };
@@ -97,7 +96,7 @@ var name = "";
                             {/* Data rows */}
                             {details.map((candidate,index) => (
 
-                                <Link id="enrolllink" to={`/alldetails`} className='link' onClick={()=>{name=candidate.Name;console.log(name);localStorage.setItem("name",JSON.stringify(candidate.Name))}}>
+                                <Link id="enrolllink" to={`/alldetails`} className='link' onClick={()=>{localStorage.setItem("email",JSON.stringify(candidate.Email))}}>
                                 <ListItem key={candidate.id}
                                     secondaryAction={
                                         <IconButton edge="end" aria-label="ok" className="iconButton">

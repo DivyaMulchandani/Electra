@@ -11,7 +11,7 @@ const {patchCand}=require("../controller/productController");
 router.post("/product",postProduct);
 router.get("/product",getAllProduct);
 router.get("/product/:email",checkLoginInfo);
-router.get("/applicant/d/:name",ApplicantInfoByName);
+router.get("/applicant/d/:email",ApplicantInfoByName);
 router.post("/applicant",PostInfoApplicant);
 router.patch("/:email",patchCand);
 router.get("/applicant",getallApp);
