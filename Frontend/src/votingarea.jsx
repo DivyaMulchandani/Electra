@@ -12,7 +12,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-function VotingArea() {
+function VotingArea({ voteCounts, setVoteCounts }) {
+
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
   const [account, setAccount] = useState(null);
@@ -38,7 +39,7 @@ function VotingArea() {
     web3: null,
     contract: null,
   });
-  const [voteCount, setVoteCount] = useState(0);
+  const [voteCount, setVoteCount] = useState([]);
 
   useEffect(() => {
     const provider = new Web3.providers.HttpProvider("HTTP://127.0.0.1:7545");
@@ -85,17 +86,32 @@ function VotingArea() {
     setupContract();
   }, []);
 
+  useEffect(() => {
+    const updatedVoteCounts = {
+      president1: voteCountPresident1.toString(),
+      president2: voteCountPresident2.toString(),
+      president3: voteCountPresident3.toString(),
+      vicePresident1: voteCountVicePresident1.toString(),
+      vicePresident2: voteCountVicePresident2.toString(),
+      vicePresident3: voteCountVicePresident3.toString(),
+    };
+    localStorage.setItem("voteCounts", JSON.stringify(updatedVoteCounts));
+  }, [voteCountPresident1, voteCountPresident2, voteCountPresident3, voteCountVicePresident1, voteCountVicePresident2, voteCountVicePresident3]);
+
+
   async function handleVoteClick(id) {
     const { contract } = state;
     console.log(id);
+    
     try {
       // Increment the vote count based on the position
       let updatedCount;
+      const senderAddress = "0x749079fEbED4E9Ab76950EF8393e1f1AE0169404";
       switch (id) {
         case 1: // President
           if (!isButtonClicked) {
             await contract.methods.setter(voteCountPresident1, 1).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(1).call();
@@ -111,7 +127,7 @@ function VotingArea() {
           console.log(isButtonClicked);
           if (!isButtonClicked) {
             await contract.methods.setter(voteCountPresident2, 2).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(2).call();
@@ -126,7 +142,7 @@ function VotingArea() {
         case 3:
           if (!isButtonClicked) {
             await contract.methods.setter(voteCountPresident3, 3).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(3).call();
@@ -141,7 +157,7 @@ function VotingArea() {
         case 4:
           if (!isViceButtonClicked) {
             await contract.methods.setter(voteCountVicePresident1, 4).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(4).call();
@@ -156,7 +172,7 @@ function VotingArea() {
         case 5:
           if (!isViceButtonClicked) {
             await contract.methods.setter(voteCountVicePresident2, 5).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(5).call();
@@ -171,10 +187,11 @@ function VotingArea() {
         case 6:
           if (!isViceButtonClicked) {
             await contract.methods.setter(voteCountVicePresident3, 6).send({
-              from: "0x785764492D0e5B6fAb2B135E126e6F59144E4c71",
+              from: senderAddress,
             });
 
             const updatedValue = await contract.methods.getter(6).call();
+            console.log(updatedValue,"updated value");
             const val = Number(updatedValue);
             console.log("hell");
             setVoteCountVicePresident3(val);

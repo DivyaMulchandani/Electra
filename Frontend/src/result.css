@@ -4,52 +4,57 @@
     padding: 0px;
     height: 100vh;
     width: 99vw;
-}
-body h4 {
+  }
+  body h4 {
     color: #795548;
-}
-body h2 {
+  }
+  body h2 {
     color: #795548;
     font-weight: 900;
     font-size: 30px;
-}
-
-.right {
+  }
+  
+  div {
+    color: #795548;
+    font-size: 18px;
+  }
+  
+  .right {
     margin: 0px;
-    background-color: #D7CCC8;
+    background-color: #d7ccc8;
     padding: 2%;
     padding-left: 5%;
     width: 80%;
     text-align: left;
-}
-.line {
+  }
+  .line {
     width: 96%;
     height: 1px;
     background-color: black;
     margin-bottom: 50px;
-}
-.right h1 {
+  }
+  .right h1 {
     font-weight: 800;
     font-size: 45px;
-    color: #5D4037;
-}
-
-.right h3 {
+    color: #5d4037;
+  }
+  
+  .right h3 {
     font-weight: 600;
     font-size: 25px;
-    color: #5D4037;
+    color: #5d4037;
     text-align: center;
     margin-top: 15px;
-}
-.left {
+  }
+  .left {
     padding: 2%;
     width: 20%;
-    background-color: #A1887F;
-}
-
-.logos {
+    background-color: #a1887f;
+  }
+  
+  .logos {
     width: 100%;
-    background-color: #A1887F;
+    background-color: #a1887f;
     padding-top: 0px;
     margin-top: 0px;
-}
+  }
