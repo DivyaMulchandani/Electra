@@ -59,6 +59,11 @@ const ApplicantSchema = new mongoose.Schema(
         "other_position" :{
             type : String,
             required : false
+        },
+        "accepted" :{
+            type: Boolean, 
+            default: false,
+            required : false
         }
     }
 )

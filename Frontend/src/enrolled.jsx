@@ -24,7 +24,6 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
-
 import { Link } from "react-router-dom";
 import "@fontsource/poppins";
 import "@fontsource/poppins/400.css";
@@ -36,104 +35,125 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 function Enrolled() {
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
-var num=1;
-var name = "";
+    var num = 1;
+    var ind = 0;
+    const navigate = useNavigate();
+    const [namelst, setNamelst] = useState([]);;
     const [details, setDetails] = useState([]);
-  const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-      setEmail(user.email);
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+            setEmail(user.email);
+        }
+    }, []);
+
+
+    const fetchInfo = () => {
+        return fetch("http://localhost:2111/api/applicant")
+            .then((res) => res.json())
+            .then((d) => {
+                setDetails(d);
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    };
+
+    useEffect(() => {
+        fetchInfo();
+
+    }, [])
+
+    const handleNameClick = (email) =>{
+        axios.patch(`http://localhost:2111/api/accept/${email}`)
+        .then(()=>{
+            console.log("patch succesful");
+        }
+        )
+        .catch(error => {
+            console.error('Error:', error); // Handle errors
+        });
     }
-  }, []);
+
+    
 
 
-  const fetchInfo = () => {
-    return fetch("http://localhost:2111/api/applicant")
-      .then((res) => res.json())
-      .then((d) => {
-        setDetails(d);
-      })
-      .catch(error => console.error("Error fetching data:", error));
-  };
+        return (
+            <>
+                <div className="main">
+                    <div className="left">
+                        <ResponsiveDrawer />
+                    </div>
+                    <div className="right">
+                        <h1>ENROLLED CANDIDATES</h1>
+                        <div className="line"></div>
+                        <Grid item xs={12} md={6}>
+                            <List dense={dense}>
+                                {/* Titles for each column */}
 
-  
-  useEffect(() => {
-    fetchInfo();
-}, [])
-
-    // Sample data for the enrolled candidates
-    const enrolledCandidates = [
-        { id: 1, name: 'Karishma Sinha', position: 'President', branch: 'CSE 4th year' },
-        { id: 2, name: 'Sonalika Mittal', position: 'Secretary', branch: 'Mech 3th year' },
-        { id: 3, name: 'Harsh Sehgal', position: 'President', branch: 'Civil 4th year' },
-        { id: 4, name: 'Yugind Shukla', position: 'Treasurer', branch: 'CSE 3rd year' }
-    ];
-
-    return (
-        <>
-            <div className="main">
-                <div className="left">
-                    <ResponsiveDrawer />
-                </div>
-                <div className="right">
-                    <h1>ENROLLED CANDIDATES</h1>
-                    <div className="line"></div>
-                    <Grid item xs={12} md={6}>
-                        <List dense={dense}>
-                            {/* Titles for each column */}
-                            
-                            <ListItem className="titleList">
-                                <ListItemText primary="Sr." />
-                                <ListItemText primary="Name" />
-                                <ListItemText primary="Position" />
-                                <ListItemText primary="Branch" />
-                            </ListItem>
-                            {/* Data rows */}
-                            {details.map((candidate,index) => (
-
-                                <Link id="enrolllink" to={`/alldetails`} className='link' onClick={()=>{localStorage.setItem("email",JSON.stringify(candidate.Email))}}>
-                                <ListItem key={candidate.id}
-                                    secondaryAction={
-                                        <IconButton edge="end" aria-label="ok" className="iconButton">
-                                            <ThumbUpIcon />
-                                        </IconButton>
-                                    }
-                                >
-                                
-                                    <ListItemText
-                                        primary={num+index}
-                                    />
-                                     
-
-                                    <ListItemText
-                                        primary={candidate.Name}
-                                    />
-                                    
-
-                                    <ListItemText
-                                        primary={candidate.Position_of_Interest}
-                                    />
-
-                                    <ListItemText
-                                        primary={candidate.Branch}
-                                        secondary={secondary ? 'Secondary text' : null}
-                                    />
-                                    
-                                    
+                                <ListItem className="titleList">
+                                    <ListItemText primary="Sr." />
+                                    <ListItemText primary="Name" />
+                                    <ListItemText primary="Position" />
+                                    <ListItemText primary="Branch" />
                                 </ListItem>
-                                </Link>
-                            ))}
-                        </List>
-                    </Grid>
-                </div>
-            </div>
-        </>
-    )
-}
+                                {/* Data rows */}
+                                {details.map((candidate, index) => (
+                                    <Link id="enrolllink" to={`/alldetails`} className='link' onClick={() => { localStorage.setItem("email", JSON.stringify(candidate.Email)) }}>
 
-export { Enrolled };
+
+
+                                        <ListItem key={candidate.id}
+
+                                        >
+
+                                            <ListItemText
+                                                primary={num + index}
+                                            />
+
+
+                                            <ListItemText
+                                                primary={candidate.Name}
+                                            />
+
+
+                                            <ListItemText
+                                                primary={candidate.Position_of_Interest}
+                                            />
+
+                                            <ListItemText
+                                                primary={candidate.Branch}
+                                                secondary={secondary ? 'Secondary text' : null}
+                                            />
+
+                                            <Link id="enrolllink" to={`/accepted`} className='link' onClick={() => {handleNameClick(candidate.Email) }}>
+
+                                                <IconButton edge="end" aria-label="ok" className="iconButton" >
+                                                    <ThumbUpIcon />
+                                                </IconButton>
+
+                                            </Link>
+
+
+
+
+
+                                        </ListItem>
+                                    </Link>
+
+
+                                ))}
+                            </List>
+
+                        </Grid>
+                    </div>
+                </div>
+            </>
+        )
+    }
+
+    export { Enrolled };
