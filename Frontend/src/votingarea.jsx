@@ -106,7 +106,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
     try {
       // Increment the vote count based on the position
       let updatedCount;
-      const senderAddress = "0x749079fEbED4E9Ab76950EF8393e1f1AE0169404";
+      const senderAddress = "0x4f49838e20802E99eeCD32bAA535dAcDDeb4105a";
       switch (id) {
         case 1: // President
           if (!isButtonClicked) {

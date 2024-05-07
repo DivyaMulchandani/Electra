@@ -58,3 +58,35 @@ body h2 {
     padding-top: 0px;
     margin-top: 0px;
 }
+.select-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center;  */
+    height: 100vh; /* Adjust as needed */
+  }
+  
+  select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+  }
+  
+  /* Optional: Style the select dropdown arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  
+  select::after {
+    content: '\25BC'; /* Unicode character for down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-10%);
+    pointer-events: none;
+  }
+  
