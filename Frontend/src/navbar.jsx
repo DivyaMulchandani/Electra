@@ -23,10 +23,12 @@ import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import logo from "./logo2.svg"
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; // Specify weight and style
+
 const useStyles = makeStyles({
   root: {
     background: "#A1887F",
@@ -51,9 +53,14 @@ const useStyles = makeStyles({
 const drawerWidth = 310;
 
 function ResponsiveDrawer(props) {
+  const [phase, setPhase] = useState("");
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+
+  useEffect(() => {
+    setPhase(localStorage.getItem("Phase"));
+  }, []); // Empty dependency array to run only once on mount
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -105,7 +112,7 @@ function ResponsiveDrawer(props) {
           </ListItem>
 
           </Link>
-          <Link to={'/registration'} className='link'>
+          {/* <Link to={'/registration'} className='link'>
 
           <ListItem divider>
             <ListItemButton>
@@ -116,18 +123,20 @@ function ResponsiveDrawer(props) {
                 primary="Voter Registration" />
             </ListItemButton>
           </ListItem>
-          </Link>
-          <Link to={'/enroll'} className='link'>
-          <ListItem divider>
-            <ListItemButton>
-              <ListItemIcon>
-                <BookmarkAddOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText className='navitem'
-                primary="Enroll as Candidate" />
-            </ListItemButton>
-          </ListItem>
-          </Link>
+          </Link> */}
+          {phase === "Registration Open" && (
+            <Link to={'/enroll'} className='link'>
+              <ListItem divider>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <BookmarkAddOutlinedIcon />
+                  </ListItemIcon>
+                  <ListItemText className='navitem'
+                    primary="Enroll as Candidate" />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          )}
           <Link to={'/votingarea'} className='link'>
 
           <ListItem divider>

@@ -70,15 +70,15 @@ return (
                                   primary={num + index}
                               />
 
-                              <ListItemText
+                              <ListItemText 
                                   primary={candidate.Name}
                               />
 
-                              <ListItemText
+                              <ListItemText style={{ marginLeft: '-30px' }}
                                   primary={candidate.Position_of_Interest}
                               />
 
-                              <ListItemText
+                              <ListItemText style={{ marginLeft: '-10px' }}
                                   primary={candidate.Branch}
                                   secondary={secondary ? 'Secondary text' : null}
                               />

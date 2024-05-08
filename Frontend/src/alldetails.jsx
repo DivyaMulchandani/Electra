@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Typography from '@mui/material/Typography';
-import ResponsiveDrawer from './navbar';
+import ResponsiveDrawer from './navbar2';
 import "./alldetails.css";
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';

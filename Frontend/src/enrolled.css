@@ -37,6 +37,14 @@ body h2 {
     background-color: #A1887F;
     font-weight: bold;
 }
+.listitem {
+    align-items: center;
+    margin-left: 200px;
+  }
+
+ListItemText{
+    margin: 20px;
+}
 .line {
     width: 96%;
     height: 1px;
@@ -55,6 +63,7 @@ body h2 {
 
 .iconButton {
     background-color: transparent !important;
+    margin: 0px;
 }
 
 .iconButton .MuiSvgIcon-root {

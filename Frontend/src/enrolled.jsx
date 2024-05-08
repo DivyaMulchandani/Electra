@@ -107,32 +107,32 @@ function Enrolled() {
 
 
 
-                                        <ListItem key={candidate.id}
+                                        <ListItem classname="listitem" key={candidate.id}
 
                                         >
 
-                                            <ListItemText
+                                            <ListItemText 
                                                 primary={num + index}
                                             />
 
 
-                                            <ListItemText
+                                            <ListItemText style={{ marginLeft: '130px' }}
                                                 primary={candidate.Name}
                                             />
 
 
-                                            <ListItemText
+                                            <ListItemText style={{ marginLeft: '110px' }}
                                                 primary={candidate.Position_of_Interest}
                                             />
 
-                                            <ListItemText
+                                            <ListItemText style={{ marginLeft: '150px' }}
                                                 primary={candidate.Branch}
                                                 secondary={secondary ? 'Secondary text' : null}
                                             />
 
                                             <Link id="enrolllink" to={`/accepted`} className='link' onClick={() => {handleNameClick(candidate.Email) }}>
 
-                                                <IconButton edge="end" aria-label="ok" className="iconButton" >
+                                                <IconButton edge="end" aria-label="ok" className="iconButton" style={{ margin: '0px' }} >
                                                     <ThumbUpIcon />
                                                 </IconButton>
 

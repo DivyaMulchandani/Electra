@@ -4,7 +4,7 @@ import ResponsiveDrawer from "./navbar2";
 import "./changephase.css";
 
 function Phase() {
-  const [selectedPhase, setSelectedPhase] = useState("Voting Open"); // default value is 'phase1'
+  const [selectedPhase, setSelectedPhase] = useState("Registration Open"); // default value is 'phase1'
 
   const handleChange = (event) => {
     setSelectedPhase(event.target.value);

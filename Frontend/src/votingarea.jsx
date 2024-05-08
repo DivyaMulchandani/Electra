@@ -107,7 +107,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
       // Increment the vote count based on the position
       let updatedCount;
 
-      const senderAddress = "0x4f49838e20802E99eeCD32bAA535dAcDDeb4105a";
+      const senderAddress = "0x2bF99A33927f81C1BB5556D8eB56BF9cEF2bd527";
 
       switch (id) {
         case 1: // President
@@ -248,8 +248,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
             <div className="hell">
               <div className="box">
                 <img src={profile} alt="Profile" />
-                <p>Karishma Sinha</p>
-                <p>CSE 4th year</p>
+                <p>Poojan Prajapati</p>
+                <p>CSE 3rd year</p>
                 <p>{voteCountPresident1}</p>
                 <button
                   onClick={() => {
@@ -264,7 +264,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div className="box">
                 <img src={profile} />
 
-                <p>Aarav Sharma</p>
+                <p>Rahil Shah</p>
                 <p>ME 4th year</p>
                 <p>{voteCountPresident2}</p>
                 <button
@@ -280,7 +280,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div className="box">
                 <img src={profile} />
 
-                <p>Kavya Patel</p>
+                <p>Medhansh Patel</p>
                 <p>CSE 3rd year</p>
                 <p>{voteCountPresident3}</p>
                 <button
@@ -302,7 +302,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div class="box">
                 <img src={profile} />
 
-                <p>Advait Singh</p>
+                <p>Kush Rana</p>
                 <p>CE 3rd year</p>
                 <p>{voteCountVicePresident1}</p>
                 <button
@@ -318,7 +318,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div className="box">
                 <img src={profile} />
 
-                <p>Ananya Desai</p>
+                <p>Yesha Barot</p>
                 <p>CSE 4th year</p>
                 <p>{voteCountVicePresident2}</p>
                 <button
@@ -334,7 +334,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div className="box">
                 <img src={profile} />
 
-                <p>Arjun Verma</p>
+                <p>Jasmeenkaur Pabla</p>
                 <p>BCA 3rd year</p>
                 <p>{voteCountVicePresident3}</p>
                 <button
