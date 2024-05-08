@@ -272,8 +272,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
               <div className="hell">
                 <div className="box">
                   <img src={profile} alt="Profile" />
-                  <p>Karishma Sinha</p>
-                  <p>CSE 4th year</p>
+                  <p>Poojan Prajapati</p>
+                  <p>CSE 3rd year</p>
                   <p>{voteCountPresident1}</p>
                   <button
                     onClick={() => {
@@ -288,8 +288,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                 <div className="box">
                   <img src={profile} />
 
-                  <p>Aarav Sharma</p>
-                  <p>ME 4th year</p>
+                  <p>Rahil Shah</p>
+                  <p>CSE 3rd year</p>
                   <p>{voteCountPresident2}</p>
                   <button
                     onClick={() => {
@@ -304,7 +304,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                 <div className="box">
                   <img src={profile} />
 
-                  <p>Kavya Patel</p>
+                  <p>Medhansh Patel</p>
                   <p>CSE 3rd year</p>
                   <p>{voteCountPresident3}</p>
                   <button
@@ -326,8 +326,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                 <div class="box">
                   <img src={profile} />
 
-                  <p>Advait Singh</p>
-                  <p>CE 3rd year</p>
+                  <p>Kush Rana</p>
+                  <p>CSE 3rd year</p>
                   <p>{voteCountVicePresident1}</p>
                   <button
                     onClick={() => {
@@ -342,8 +342,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                 <div className="box">
                   <img src={profile} />
 
-                  <p>Ananya Desai</p>
-                  <p>CSE 4th year</p>
+                  <p>Dev Vaghela</p>
+                  <p>CSE 3rd year</p>
                   <p>{voteCountVicePresident2}</p>
                   <button
                     onClick={() => {
@@ -358,8 +358,8 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                 <div className="box">
                   <img src={profile} />
 
-                  <p>Arjun Verma</p>
-                  <p>BCA 3rd year</p>
+                  <p>Jasmeenkaur Pabla</p>
+                  <p>CSE 3rd year</p>
                   <p>{voteCountVicePresident3}</p>
                   <button
                     onClick={() => {
