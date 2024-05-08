@@ -13,7 +13,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 function VotingArea({ voteCounts, setVoteCounts }) {
-
   const [web3, setWeb3] = useState(null);
   const [contract, setContract] = useState(null);
   const [account, setAccount] = useState(null);
@@ -25,14 +24,34 @@ function VotingArea({ voteCounts, setVoteCounts }) {
   const [voteCountVicePresident1, setVoteCountVicePresident1] = useState(0);
   const [voteCountVicePresident2, setVoteCountVicePresident2] = useState(0);
   const [voteCountVicePresident3, setVoteCountVicePresident3] = useState(0);
-
+  const [phase, setPhase] = useState("");
   const [isButtonClicked, setIsButtonClicked] = useState(false);
   const [isViceButtonClicked, setIsViceButtonClicked] = useState(false);
+  
+  const [isVisible1, setIsVisible1] = useState(false);
+  const [isVisible2, setIsVisible2] = useState(true);
+
+
 
   useEffect(() => {
     console.log(isButtonClicked);
-  }, [isButtonClicked]);
 
+  }, [isButtonClicked]);
+  useEffect(() => {
+    
+  setPhase(localStorage.getItem("Phase"));
+    if (phase === "Voting Open") {
+      setIsVisible1(true);
+      setIsVisible2(false);
+    } else if (phase === "Voting Closed") {
+      setIsVisible1(false);
+      setIsVisible2(true);
+    } else {
+      setIsVisible1(false);
+      setIsVisible2(true);
+    }
+  }, [phase]);
+  
   const id = 0;
   const [openDialog, setOpenDialog] = useState(false);
   const [state, setState] = useState({
@@ -96,19 +115,23 @@ function VotingArea({ voteCounts, setVoteCounts }) {
       vicePresident3: voteCountVicePresident3.toString(),
     };
     localStorage.setItem("voteCounts", JSON.stringify(updatedVoteCounts));
-  }, [voteCountPresident1, voteCountPresident2, voteCountPresident3, voteCountVicePresident1, voteCountVicePresident2, voteCountVicePresident3]);
-
+  }, [
+    voteCountPresident1,
+    voteCountPresident2,
+    voteCountPresident3,
+    voteCountVicePresident1,
+    voteCountVicePresident2,
+    voteCountVicePresident3,
+  ]);
 
   async function handleVoteClick(id) {
     const { contract } = state;
     console.log(id);
-    
+
     try {
       // Increment the vote count based on the position
       let updatedCount;
-
-      const senderAddress = "0x2bF99A33927f81C1BB5556D8eB56BF9cEF2bd527";
-
+      const senderAddress = "0x67381FEf5843E8E4BA3E7FFdE1F8BBcfC20B36F5";
       switch (id) {
         case 1: // President
           if (!isButtonClicked) {
@@ -193,7 +216,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
             });
 
             const updatedValue = await contract.methods.getter(6).call();
-            console.log(updatedValue,"updated value");
+            console.log(updatedValue, "updated value");
             const val = Number(updatedValue);
             console.log("hell");
             setVoteCountVicePresident3(val);
@@ -240,114 +263,123 @@ function VotingArea({ voteCounts, setVoteCounts }) {
           <h1>Voting area</h1>
           <div className="line"></div>
 
-          <ul>
-            <h4>
-              <li type="1">President</li>
-            </h4>
+          {isVisible1 && (<div>
+            <ul>
+              <h4>
+                <li type="1">President</li>
+              </h4>
 
-            <div className="hell">
-              <div className="box">
-                <img src={profile} alt="Profile" />
-                <p>Poojan Prajapati</p>
-                <p>CSE 3rd year</p>
-                <p>{voteCountPresident1}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(1);
-                  }}
-                  disabled={isButtonClicked}
-                >
-                  Vote
-                </button>
+              <div className="hell">
+                <div className="box">
+                  <img src={profile} alt="Profile" />
+                  <p>Karishma Sinha</p>
+                  <p>CSE 4th year</p>
+                  <p>{voteCountPresident1}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(1);
+                    }}
+                    disabled={isButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
+
+                <div className="box">
+                  <img src={profile} />
+
+                  <p>Aarav Sharma</p>
+                  <p>ME 4th year</p>
+                  <p>{voteCountPresident2}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(2);
+                    }}
+                    disabled={isButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
+
+                <div className="box">
+                  <img src={profile} />
+
+                  <p>Kavya Patel</p>
+                  <p>CSE 3rd year</p>
+                  <p>{voteCountPresident3}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(3);
+                    }}
+                    disabled={isButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
               </div>
 
-              <div className="box">
-                <img src={profile} />
+              <h4>
+                <li type="1">Vice President</li>
+              </h4>
 
-                <p>Rahil Shah</p>
-                <p>ME 4th year</p>
-                <p>{voteCountPresident2}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(2);
-                  }}
-                  disabled={isButtonClicked}
-                >
-                  Vote
-                </button>
+              <div className="hell">
+                <div class="box">
+                  <img src={profile} />
+
+                  <p>Advait Singh</p>
+                  <p>CE 3rd year</p>
+                  <p>{voteCountVicePresident1}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(4);
+                    }}
+                    disabled={isViceButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
+
+                <div className="box">
+                  <img src={profile} />
+
+                  <p>Ananya Desai</p>
+                  <p>CSE 4th year</p>
+                  <p>{voteCountVicePresident2}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(5);
+                    }}
+                    disabled={isViceButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
+
+                <div className="box">
+                  <img src={profile} />
+
+                  <p>Arjun Verma</p>
+                  <p>BCA 3rd year</p>
+                  <p>{voteCountVicePresident3}</p>
+                  <button
+                    onClick={() => {
+                      handleVoteClick(6);
+                    }}
+                    disabled={isViceButtonClicked}
+                  >
+                    Vote
+                  </button>
+                </div>
               </div>
+            </ul>
+          </div>)}
 
-              <div className="box">
-                <img src={profile} />
-
-                <p>Medhansh Patel</p>
-                <p>CSE 3rd year</p>
-                <p>{voteCountPresident3}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(3);
-                  }}
-                  disabled={isButtonClicked}
-                >
-                  Vote
-                </button>
-              </div>
+          {isVisible2 && (
+            <div className="registration">
+              <h3>Voting is yet to be open</h3>
+              <h3>Please return later to cast your vote.</h3>
             </div>
-
-            <h4>
-              <li type="1">Vice President</li>
-            </h4>
-
-            <div className="hell">
-              <div class="box">
-                <img src={profile} />
-
-                <p>Kush Rana</p>
-                <p>CE 3rd year</p>
-                <p>{voteCountVicePresident1}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(4);
-                  }}
-                  disabled={isViceButtonClicked}
-                >
-                  Vote
-                </button>
-              </div>
-
-              <div className="box">
-                <img src={profile} />
-
-                <p>Yesha Barot</p>
-                <p>CSE 4th year</p>
-                <p>{voteCountVicePresident2}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(5);
-                  }}
-                  disabled={isViceButtonClicked}
-                >
-                  Vote
-                </button>
-              </div>
-
-              <div className="box">
-                <img src={profile} />
-
-                <p>Jasmeenkaur Pabla</p>
-                <p>BCA 3rd year</p>
-                <p>{voteCountVicePresident3}</p>
-                <button
-                  onClick={() => {
-                    handleVoteClick(6);
-                  }}
-                  disabled={isViceButtonClicked}
-                >
-                  Vote
-                </button>
-              </div>
-            </div>
-          </ul>
+          )}
 
           <Dialog
             open={openDialog}
