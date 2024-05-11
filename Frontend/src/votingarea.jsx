@@ -131,7 +131,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
     try {
       // Increment the vote count based on the position
       let updatedCount;
-      const senderAddress = "0x67381FEf5843E8E4BA3E7FFdE1F8BBcfC20B36F5";
+      const senderAddress = "0x4B75096b543caEE55ED5E8046Ab2DE5751fa961c";
       switch (id) {
         case 1: // President
           if (!isButtonClicked) {
@@ -274,7 +274,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
                   <img src={profile} alt="Profile" />
                   <p>Poojan Prajapati</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountPresident1}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(1);
@@ -290,7 +290,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
                   <p>Rahil Shah</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountPresident2}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(2);
@@ -306,7 +306,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
                   <p>Medhansh Patel</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountPresident3}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(3);
@@ -328,7 +328,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
                   <p>Kush Rana</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountVicePresident1}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(4);
@@ -344,7 +344,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
                   <p>Dev Vaghela</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountVicePresident2}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(5);
@@ -360,7 +360,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
                   <p>Jasmeenkaur Pabla</p>
                   <p>CSE 3rd year</p>
-                  <p>{voteCountVicePresident3}</p>
+                  
                   <button
                     onClick={() => {
                       handleVoteClick(6);

@@ -45,14 +45,14 @@ function Result() {
 
   useEffect(() => {
     const presidentCandidates = {
-      president1: "Karishma Sinha",
-      president2: "Aarav Sharma",
-      president3: "Kavya Patel",
+      president1: "Poojan Prajapati",
+      president2: "Rahil Shah",
+      president3: "Medhansh Patel",
     };
     const vicePresidentCandidates = {
-      vicePresident1: "Advait Singh",
-      vicePresident2: "Ananya Desai",
-      vicePresident3: "Arjun Verma",
+      vicePresident1: "Kush Rana",
+      vicePresident2: "Dev Vaghela",
+      vicePresident3: "Jasmeenkaur Pabla",
     };
 
     // Find the candidate with the highest votes for president

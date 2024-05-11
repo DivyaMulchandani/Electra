@@ -108,7 +108,7 @@ function Signup() {
                         /><br></br>
                         <input type="text" id="clgname" name="clgname" placeholder="Enter College Email" className='signup_input'
                             onChange={(e) => setEmail(e.target.value)} /><br></br>
-                        <input placeholder='Enter password' type="password" id="pass" name="password" className='signup_input'
+                        <input placeholder='Enter Password' type="password" id="pass" name="password" className='signup_input'
                             onChange={(e) => setPassword(e.target.value)} /><br></br>
                         <input placeholder="Enter Confirm Password" type="password" id="cpass" name="confirmpassword" className='signup_input'
                             onChange={(e) => setconPassword(e.target.value)} /><br></br>
