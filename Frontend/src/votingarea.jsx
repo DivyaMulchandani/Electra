@@ -141,7 +141,6 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
             const updatedValue = await contract.methods.getter(1).call();
             const val = Number(updatedValue);
-            console.log("hell");
             setVoteCountPresident1(val);
             console.log(val);
 
@@ -157,7 +156,6 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
             const updatedValue = await contract.methods.getter(2).call();
             const val = Number(updatedValue);
-            console.log("hell");
             setVoteCountPresident2(val);
             console.log(val);
 
@@ -172,7 +170,6 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
             const updatedValue = await contract.methods.getter(3).call();
             const val = Number(updatedValue);
-            console.log("hell");
             setVoteCountPresident3(val);
             console.log(val);
 
@@ -187,7 +184,6 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
             const updatedValue = await contract.methods.getter(4).call();
             const val = Number(updatedValue);
-            console.log("hell");
             setVoteCountVicePresident1(val);
             console.log(val);
 
@@ -202,7 +198,6 @@ function VotingArea({ voteCounts, setVoteCounts }) {
 
             const updatedValue = await contract.methods.getter(5).call();
             const val = Number(updatedValue);
-            console.log("hell");
             setVoteCountVicePresident2(val);
             console.log(val);
 
@@ -218,8 +213,7 @@ function VotingArea({ voteCounts, setVoteCounts }) {
             const updatedValue = await contract.methods.getter(6).call();
             console.log(updatedValue, "updated value");
             const val = Number(updatedValue);
-            console.log("hell");
-            setVoteCountVicePresident3(val);
+             setVoteCountVicePresident3(val);
             console.log(val);
 
             setIsViceButtonClicked(true);
